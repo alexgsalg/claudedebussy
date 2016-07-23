@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'port'      => '',
-            'database'  => 'database',
-            'username'  => 'root',
-            'password'  => '',
+            'host'      => env('DB_HOST', 'localhost'),
+            'port'      => env('DB_PORT', ''),
+            'database'  => env('DB_DATABASE', 'dicas364_dj'),
+            'username'  => env('DB_USERNAME', 'dicas364_dj'),
+            'password'  => env('DB_PASSWORD', 'Plut8zN8ZErg'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
@@ -118,7 +118,6 @@ return [
 
         'default' => [
             'host'     => '127.0.0.1',
-            'password' => null,
             'port'     => 6379,
             'database' => 0,
         ],

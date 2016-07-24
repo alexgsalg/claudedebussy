@@ -23,13 +23,13 @@
     });
   </script>
   <script type="text/javascript" src="{{ 'assets/js/modernizr.js' | theme }}"></script>
-  <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ 'assets/images/favicon.ico' | theme }}">
   <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
 </head>
 <body class="body">
   <div class="left-navigation w-nav" data-animation="over-right" data-collapse="medium" data-doc-height="1" data-duration="100" data-no-scroll="1">
     <div>
-      <a class="logo-link w-nav-brand" href="index.html"><img class="logo w-hidden-medium w-hidden-small w-hidden-tiny" src="{{ 'assets/images/logo-bq.png' | theme }}" width="110"><img class="logo w-hidden-main" src="{{ 'assets/images/logo-bq-horizontal.png' | theme }}" width="128">
+      <a class="logo-link w-nav-brand" href="{{ 'index' | page }}"><img class="logo w-hidden-medium w-hidden-small w-hidden-tiny" src="{{ 'assets/images/logo-bq.png' | theme }}" width="110"><img class="logo w-hidden-main" src="{{ 'assets/images/logo-bq-horizontal.png' | theme }}" width="128">
       </a>
     </div><img class="top-img-mobile w-hidden-main" src="{{ 'assets/images/bg-logo.jpg' | theme }}">
     <nav class="nav-menu w-nav-menu" role="navigation"><a class="nav-link w-nav-link{% if this.page.id == 'index' %}w--current{% endif %}" href="{{ 'index' | page }}">Home</a>
@@ -38,7 +38,7 @@
           <div class="text-block-drop">escola</div>
           <div class="icon-dropdown w-icon-dropdown-toggle"></div>
         </div>
-        <nav class="dropdown-box w-dropdown-list"><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'claude' %}w--current{% endif %}" href="{{ 'claude' | page }}">Sobre a Claude</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'projetos-sociais' %}w--current{% endif %}" href="{{ 'escola/projetos-sociais' | page }}">Projetos Sociais</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'convenios' %}w--current{% endif %}" href="{{ 'escola/convenios' | page }}">CONVÊNIOS</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'metodologia' %}w--current{% endif %}" href="{{ 'escola/metodologia' | page }}">Metodologia</a><a class="drop-link nav-link w-dropdown-link{% if this.page.id == 'instalacoes' %}w--current{% endif %}" href="{{ 'escola/instalacoes' |page }}">Instalações</a>
+        <nav class="dropdown-box w-dropdown-list"><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'claude' %}w--current{% endif %}" href="{{ 'claude' | page }}">Sobre o Instituto</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'projetos-sociais' %}w--current{% endif %}" href="{{ 'escola/projetos-sociais' | page }}">Projetos Sociais</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'convenios' %}w--current{% endif %}" href="{{ 'escola/convenios' | page }}">CONVÊNIOS</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'metodologia' %}w--current{% endif %}" href="{{ 'escola/metodologia' | page }}">Metodologia</a><a class="drop-link nav-link w-dropdown-link{% if this.page.id == 'instalacoes' %}w--current{% endif %}" href="{{ 'escola/instalacoes' | page }}">Instalações</a>
         </nav>
       </div>
       <div class="dropdown w-dropdown" data-delay="100" data-hover="1">
@@ -46,7 +46,7 @@
           <div class="text-block-drop">cursos</div>
           <div class="icon-dropdown w-icon-dropdown-toggle"></div>
         </div>
-        <nav class="drop-2 dropdown-box w-dropdown-list"><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'danca' %}w--current{% endif %}" href="{{'cursos/danca' | page }}">Cursos de&nbsp;Dança</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'teatro' %}w--current{% endif %}" href="{{ 'cursos/teatro' | page }}">CURSOS DE&nbsp;Teatro</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'musica' %}w--current{% endif %}" href="{{ 'cursos/musica' | page }}">CURSOS DE&nbsp;Música</a>
+        <nav class="drop-2 dropdown-box w-dropdown-list"><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'danca' %}w--current{% endif %}" href="{{'cursos/danca' | page }}">Cursos de Dança</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'teatro' %}w--current{% endif %}" href="{{ 'cursos/teatro' | page }}">CURSOS DE Teatro</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'musica' %}w--current{% endif %}" href="{{ 'cursos/musica' | page }}">CURSOS DE Música</a>
         </nav>
       </div><a class="nav-link w-nav-link {% if this.page.id == 'espaco-crianca' %}w--current{% endif %}" href="{{ 'espaco-crianca' | page }}">espaço criança</a><a class="nav-link w-nav-link {% if this.page.id == 'espetaculos' %}w--current{% endif %}" href="{{ 'espetaculo' | page }}">espetáculos</a><a class="nav-link w-nav-link {% if this.page.id == 'contato' %}w--current{% endif %}" href="{{'contato' | page }}">contato</a>
     </nav>

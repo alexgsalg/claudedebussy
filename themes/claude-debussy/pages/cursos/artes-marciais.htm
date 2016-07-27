@@ -1,0 +1,32 @@
+title = 'Artes Marciais'
+url = '/cursos/artes-marciais'
+layout = 'default'
+==
+
+<div class="banner luta pg-escola" id="home">
+      <div class="sec-titulo">
+        <h2 class="section-heading titulo">Artes Marciais</h2>
+      </div>
+    </div>
+    <section class="section section-escola" id="about">
+      <div class="content-info">
+        <p class="p-escola">As aulas de dança procuram inspirar a confiança física e mental através de exercícios que respeitam os limites de cada aluno. A dança desenvolve a boa postura, a elasticidade, a coordenação motora, o ritmo, a harmonia de movimentos e a criatividade. O Instituto tem o cuidado de proporcionar para o aluno a condição de alcançar o seu melhor desempenho de forma eficiente, mas principalmente agradável.</p>
+      </div>
+      <div class="cursos">
+        <div class="cursos-box">
+          <a class="box-img w-inline-block" data-ix="hover-cursos-danca" href="{{ 'artes-marciais/karate' | page }}">
+            <div class="cursos-info">
+              <div>Karate</div>
+            </div><img src="{{ 'assets/images/karate-box.jpg' | theme }}">
+          </a>
+        </div>
+        <div class="cursos-box">
+          <a class="box-img w-inline-block" data-ix="hover-cursos-danca" href="{{ 'artes-marciais/capoeira' | page }}">
+            <div class="cursos-info">
+              <div>Capoeira</div>
+            </div><img src="{{ 'assets/images/capoeira-infantil.jpg' | theme }}">
+          </a>
+        </div>
+      </div>
+    </section>
+    {% partial 'cta-matricula' %}

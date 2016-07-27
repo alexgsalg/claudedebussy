@@ -1,0 +1,32 @@
+title = 'Artes Circenses'
+url = '/cursos/artes-circenses'
+layout = 'default'
+==
+
+<div class="banner circo pg-escola" id="home">
+      <div class="sec-titulo">
+        <h2 class="section-heading titulo">Artes Circenses</h2>
+      </div>
+    </div>
+    <section class="section section-escola" id="about">
+      <div class="content-info">
+        <p class="p-escola">As aulas de dança procuram inspirar a confiança física e mental através de exercícios que respeitam os limites de cada aluno. A dança desenvolve a boa postura, a elasticidade, a coordenação motora, o ritmo, a harmonia de movimentos e a criatividade. O Instituto tem o cuidado de proporcionar para o aluno a condição de alcançar o seu melhor desempenho de forma eficiente, mas principalmente agradável.</p>
+      </div>
+      <div class="cursos">
+        <div class="cursos-box">
+          <a class="box-img w-inline-block" data-ix="hover-cursos-danca" href="{{ 'acrobacias-aereas/acrobacias-aereas' | page }}">
+            <div class="cursos-info">
+              <div>Acrobacias aéreas</div>
+            </div><img src="{{ 'assets//images/acrobacias-box.jpg' | theme }}">
+          </a>
+        </div>
+        <div class="cursos-box">
+          <a class="box-img w-inline-block" data-ix="hover-cursos-danca" href="{{ 'acrobacias-aereas/circo' | page }}">
+            <div class="cursos-info">
+              <div>Circo</div>
+            </div><img src="{{ 'assets//images/circu.box.jpg' | theme }}">
+          </a>
+        </div>
+      </div>
+    </section>
+    {% partial 'cta-matricula' %}

@@ -681,7 +681,11 @@ a {
 }
 
 .content {
-  height: 100%;
+  height: auto;
+}
+
+.content.div-contato {
+  height: auto;
 }
 
 .success-message {
@@ -968,7 +972,9 @@ a {
 }
 
 .content-info {
+  display: inline-block;
   width: 95%;
+  height: auto;
 }
 
 .content-info.modulos-curso {
@@ -1259,6 +1265,7 @@ a {
 }
 
 .row-contato {
+  height: auto;
   margin-top: 25px;
   margin-bottom: 25px;
 }
@@ -1494,7 +1501,7 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     background-attachment: scroll, scroll;
   }
   .column-0-padding {
-    height: 430px;
+    height: 460px;
   }
   .copy {
     display: block;
@@ -1589,6 +1596,9 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     font-size: 42px;
     line-height: 42px;
   }
+  .section-heading.centered {
+    font-size: 30px;
+  }
   .section-subheading.center.tit {
     margin-top: 10px;
   }
@@ -1682,8 +1692,14 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   .hero-heading {
     font-size: 37px;
   }
+  .hollow-button {
+    width: 80%;
+  }
+  .section-heading.centered {
+    font-size: 25px;
+  }
   .section-heading.titulo {
-    font-size: 27px;
+    font-size: 25px;
   }
   .section-heading.titulo-contato.black {
     font-size: 24px;
@@ -1708,8 +1724,17 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     height: 300px;
     background-attachment: scroll;
   }
+  .banner.pg-escola.teatro {
+    height: 300px;
+  }
+  .banner.pg-escola.bg-espetaculo {
+    height: 40%;
+  }
+  .banner.pg-escola.gra {
+    background-position: 50% 147%;
+  }
   .banner.pg-projetos {
-    height: 250px;
+    height: 40%;
     background-image: -webkit-linear-gradient(270deg, null, null), url('../images/bg-projetos-so.JPG');
     background-image: linear-gradient(180deg, null, null), url('../images/bg-projetos-so.JPG');
     background-size: auto, cover;
@@ -1724,8 +1749,25 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     background-repeat: repeat;
     background-attachment: scroll;
   }
+  .banner.bg-convenios {
+    height: 40%;
+  }
+  .banner.pg-metodolog {
+    height: 40%;
+  }
+  .banner.bg-instalacoes {
+    height: 40%;
+    background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg');
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg');
+    background-position: 0px 0px, 50% 21px;
+    background-size: auto, cover;
+    background-attachment: scroll, fixed;
+  }
+  .banner.pg-espaco.daycare-banner {
+    height: 160px;
+  }
   .column-0-padding {
-    height: 330px;
+    height: 350px;
     min-height: auto;
     margin-bottom: 30px;
   }
@@ -1745,6 +1787,24 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   .p-escola {
     width: 100%;
     font-size: 16px;
+  }
+  .slider-espaco {
+    height: auto;
+  }
+  .mascara-espaco {
+    height: auto;
+  }
+  .div-slider-espaco.slider-1 {
+    min-height: 160px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+  .div-slider-espaco.slider-2 {
+    min-height: 160px;
+  }
+  .arrow-block {
+    width: 40px;
   }
   .mobile-link {
     display: inline-block;

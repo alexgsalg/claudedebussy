@@ -1,3 +1,9 @@
+# Habilitar o PHP 7
+AddHandler application/x-httpd-php70 .php
+<IfModule mod_suphp.c>
+    suPHP_ConfigPath /opt/php70/lib
+</IfModule>
+
 <IfModule mod_rewrite.c>
 
     <IfModule mod_negotiation.c>

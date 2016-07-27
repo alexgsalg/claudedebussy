@@ -224,6 +224,7 @@ a {
 }
 
 .hero-heading {
+  display: inline-block;
   margin-bottom: 19px;
   color: #fff;
   font-size: 45px;
@@ -375,6 +376,7 @@ a {
 }
 
 .social-icon-link {
+  height: 32px;
   padding: 3px 6px;
   opacity: 0.66;
   -webkit-transition: opacity 300ms ease;
@@ -404,6 +406,7 @@ a {
   left: 0px;
   right: 0px;
   bottom: 0px;
+  display: inline-block;
   padding-top: 35px;
   padding-bottom: 2px;
 }
@@ -475,8 +478,8 @@ a {
 }
 
 .nav-link.w--current {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 4%;
+  padding-bottom: 4%;
   background-color: #e7c9f0;
   color: #000;
 }
@@ -510,7 +513,7 @@ a {
 }
 
 .nav-menu {
-  margin-top: 20px;
+  margin-top: 10px;
   float: none;
   line-height: 4px;
 }
@@ -584,13 +587,40 @@ a {
 .banner.pg-escola.danca {
   background-image: url('../images/BALLET-1920X1080.jpg');
   background-position: 50% 50%;
-  background-size: 960px;
+  background-size: cover;
   background-attachment: scroll;
 }
 
 .banner.pg-escola.bg-espetaculo {
   background-image: url('../images/bg-convenios.jpg');
   background-position: 50% 123%;
+  background-size: cover;
+}
+
+.banner.pg-escola.circo {
+  background-image: url('../images/aula-de-circo.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+.banner.pg-escola.luta {
+  background-image: url('../images/karate.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+.banner.pg-escola.saude {
+  background-image: url('../images/o-WOMEN-YOGA-CLASS-facebook.jpg');
+  background-position: 50% 100%;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+.banner.pg-escola.gra {
+  background-image: url('../images/gra-bg.jpg');
+  background-position: 50% 100%;
   background-size: cover;
 }
 
@@ -645,7 +675,7 @@ a {
 }
 
 .column-0-padding {
-  height: 460px;
+  height: 480px;
   min-height: 400px;
   text-align: justify;
 }
@@ -763,6 +793,10 @@ a {
   border: 2px solid #000;
   color: #000;
   text-decoration: none;
+}
+
+.btn-cta-home.no-btn {
+  color: #fff;
 }
 
 .p-home {
@@ -1051,6 +1085,10 @@ a {
   font-size: 17px;
 }
 
+.cursos-info.espetaculo-box.none {
+  display: none;
+}
+
 .text-teatro {
   padding-right: 20px;
   padding-left: 20px;
@@ -1085,7 +1123,7 @@ a {
 }
 
 .div-slider-espaco.slider-2 {
-  background-image: url('../images/day-care-1024x341.png');
+  background-image: url('../images/daycare.jpg');
   background-size: cover;
 }
 
@@ -1299,6 +1337,19 @@ a {
 .image-space {
   margin-top: 25px;
   margin-bottom: 25px;
+}
+
+.lightbox-fotos {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tiny {
+  font-size: 14px;
+}
+
+.foto-plus {
+  margin-bottom: 10px;
 }
 
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {

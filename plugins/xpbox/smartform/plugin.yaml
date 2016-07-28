@@ -1,0 +1,35 @@
+plugin:
+    name: 'xpbox.smartform::lang.plugin.name'
+    description: 'xpbox.smartform::lang.plugin.description'
+    author: Xpbox
+    icon: oc-icon-code
+    homepage: ''
+permissions:
+    manager_forms:
+        tab: 'xpbox.smartform::lang.tab_manager_forms'
+        label: 'xpbox.smartform::lang.permissions.manager_forms'
+    user_forms:
+        tab: 'xpbox.smartform::lang.tab_manager_forms'
+        label: 'xpbox.smartform::lang.permissions.user_forms'
+navigation:
+    main-menu-item-form:
+        label: 'xpbox.smartform::lang.plugin.name'
+        url: xpbox/smartform/leads
+        icon: icon-book
+        permissions:
+            - manager_forms
+            - user_forms
+        sideMenu:
+            side-menu-item:
+                label: 'xpbox.smartform::lang.make_forms_menu'
+                url: xpbox/smartform/forms
+                icon: icon-code
+                permissions:
+                    - manager_forms
+            side-menu-item2:
+                label: 'xpbox.smartform::lang.lead_list'
+                url: xpbox/smartform/leads
+                icon: icon-list
+                permissions:
+                    - manager_forms
+                    - user_forms

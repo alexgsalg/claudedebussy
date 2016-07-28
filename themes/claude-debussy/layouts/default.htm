@@ -1,4 +1,5 @@
-
+description = "Default layout"
+[smartForm]
 ==
 
 <!DOCTYPE html>
@@ -113,6 +114,8 @@
 
       $('.phone-ddd').mask(SPMaskBehavior, spOptions);
   </script>
-
+{% partial 'smartform-script' %}
+        {% framework extras %}
+        {% scripts %}
 </body>
 </html>

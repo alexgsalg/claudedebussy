@@ -1,0 +1,22 @@
+columns:
+    id:
+        label: 'xpbox.smartform::lang.id'
+        type: number
+        searchable: true
+        sortable: true
+    form_name:
+        label: 'xpbox.smartform::lang.form_name'
+        type: text
+        searchable: false
+        sortable: false
+    data:
+        label: 'xpbox.smartform::lang.data'
+        type: partial
+        path: ~/plugins/xpbox/smartform/controllers/leads/_partial_json.htm
+        searchable: true
+    created_at:
+        label: 'xpbox.smartform::lang.created_at'
+        type: datetime
+        searchable: true
+        sortable: true
+        format: d/m/Y H:i:s

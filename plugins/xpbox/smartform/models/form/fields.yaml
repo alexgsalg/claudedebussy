@@ -1,0 +1,36 @@
+fields:
+    from:
+        label: 'xpbox.smartform::lang.from'
+        oc.commentPosition: ''
+        span: auto
+        placeholder: joe@gmail.com
+        type: text
+    to:
+        label: 'xpbox.smartform::lang.to'
+        oc.commentPosition: ''
+        span: auto
+        required: 1
+        type: text
+    subject:
+        label: 'xpbox.smartform::lang.subject'
+        oc.commentPosition: ''
+        span: full
+        required: 1
+        type: text
+    slug:
+        label: 'xpbox.smartform::lang.slug_form'
+        oc.commentPosition: ''
+        span: full
+        disabled: 0
+        required: 1
+        preset:
+            field: subject
+            type: slug
+        type: text
+    message:
+        label: 'xpbox.smartform::lang.message'
+        span: full
+        size: large
+        stretch: 0
+        required: 1
+        type: textarea

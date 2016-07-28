@@ -1,0 +1,17 @@
+
+==
+<script type="text/javascript">
+// Callback Formulario
+        function callbackForm (el,data) {
+            if(data.error){
+                $($(el).siblings().get(0)).css("display", "none");
+                $($(el).siblings().get(1)).css("display", "block");
+            }else {
+                $($(el).siblings().get(0)).css("display", "block");
+                $($(el).siblings().get(1)).css("display", "none");
+                $(el)[0].reset();
+            }
+            console.log(el);
+        }
+
+</script>

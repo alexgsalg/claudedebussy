@@ -1,0 +1,4 @@
+title: Forms
+modelClass: Xpbox\Smartform\Models\Form
+toolbar:
+    buttons: reorder_toolbar

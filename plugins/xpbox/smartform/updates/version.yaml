@@ -1,0 +1,17 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table xpbox_smartform_form'
+    - builder_table_create_xpbox_smartform_form.php
+1.0.3:
+    - 'Updated table xpbox_smartform_form'
+    - builder_table_update_xpbox_smartform_form.php
+1.0.4:
+    - 'Updated table xpbox_smartform_form'
+    - builder_table_update_xpbox_smartform_form_2.php
+1.0.5:
+    - 'Created table xpbox_smartform_leads'
+    - builder_table_create_xpbox_smartform_leads.php
+1.0.6:
+    - 'Updated table xpbox_smartform_form'
+    - builder_table_update_xpbox_smartform_form_3.php

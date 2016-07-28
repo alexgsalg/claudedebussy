@@ -1,0 +1,4 @@
+export:
+    title: Export subscribers
+    modelClass: Xpbox\SmartForm\Models\LeadsExport
+    list: $/xpbox/smartform/models/leads/columns.yaml

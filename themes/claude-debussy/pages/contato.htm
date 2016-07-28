@@ -38,10 +38,10 @@ layout = 'default'
           </div>
           <div class="w-col w-col-6">
             <div class="form-field w-form">
-              <form data-name="Email Form" id="email-form" name="email-form">
+                <form {{ add_attributes_smartform('contato-site') }} data-request-success="callbackForm(this, data)">
                 <input class="w-input" data-name="Name" id="name" maxlength="256" name="name" placeholder="Digite seu nome" required="required" type="text">
                 <input class="w-input" data-name="Email" id="email" maxlength="256" name="email" placeholder="Digite seu email" required="required" type="email">
-                <input class="phone-ddd w-input" data-name="Telefone" id="Telefone" maxlength="256" name="Telefone" placeholder="Digite seu telefone" required="required" type="text">
+                <input class="phone-ddd w-input" data-name="Telefone" id="Telefone" maxlength="256" name="telefone" placeholder="Digite seu telefone" required="required" type="text">
                 <select class="seletor w-select" id="field" name="field" required="required">
                   <option value="">Como chegou aqui?</option>
                   <option value="amigos">Amigos</option>

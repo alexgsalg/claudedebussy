@@ -1,0 +1,5 @@
+title: Leads
+modelClass: Xpbox\Smartform\Models\Leads
+nameFrom: Leads
+toolbar:
+    buttons: reorder_toolbar

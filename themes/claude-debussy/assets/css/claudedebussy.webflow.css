@@ -560,7 +560,7 @@ a {
 
 .banner.pg-escola {
   height: 50%;
-  background-image: url('../images/bg-instalações.jpg');
+  background-image: url('../images/bg-instalacoes.jpg');
   background-position: 50% 100%;
   background-size: cover;
   background-attachment: fixed;
@@ -1640,6 +1640,10 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   .grid-fours {
     width: 49.333%;
   }
+  .banner.pg-escola {
+    display: block;
+    height: 300px;
+  }
   .column-0-padding {
     margin-bottom: 30px;
     text-align: center;
@@ -1647,6 +1651,9 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   .column-remove-padding {
     padding-right: 0px;
     padding-left: 0px;
+  }
+  .content {
+    height: auto;
   }
   .copy {
     color: #fff;
@@ -1718,7 +1725,9 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     font-size: 25px;
   }
   .section-heading.titulo {
-    font-size: 25px;
+    margin-bottom: 0px;
+    font-size: 22px;
+    line-height: 25px;
   }
   .section-heading.titulo-contato.black {
     font-size: 24px;
@@ -1740,7 +1749,7 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     height: 450px;
   }
   .banner.pg-escola {
-    height: 40vh;
+    height: 30vh;
     background-image: url('../images/bg-instalações.jpg');
     background-position: 50% 0px;
     background-size: 100%;

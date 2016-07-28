@@ -1,0 +1,11 @@
+name: Forms
+modelClass: Xpbox\Smartform\Models\Form
+form: $/xpbox/smartform/models/form/fields.yaml
+defaultRedirect: xpbox/smartform/forms
+create:
+    redirect: 'xpbox/smartform/forms/update/:id'
+    redirectClose: xpbox/smartform/forms
+update:
+    redirect: xpbox/smartform/forms
+    redirectClose: xpbox/smartform/forms
+preview: {  }

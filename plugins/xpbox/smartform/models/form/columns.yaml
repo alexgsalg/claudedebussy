@@ -1,0 +1,21 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+        sortable: true
+    subject:
+        label: 'xpbox.smartform::lang.subject'
+        type: text
+        searchable: true
+        sortable: true
+    from:
+        label: 'xpbox.smartform::lang.from'
+        type: text
+        searchable: true
+        sortable: true
+    to:
+        label: 'xpbox.smartform::lang.to'
+        type: text
+        searchable: true
+        sortable: true

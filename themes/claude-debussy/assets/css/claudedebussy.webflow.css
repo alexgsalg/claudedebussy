@@ -560,8 +560,8 @@ a {
 
 .banner.pg-escola {
   height: 50%;
-  background-image: url('../images/bg-escola.jpg');
-  background-position: 0px -376px;
+  background-image: url('../images/bg-instalações.jpg');
+  background-position: 50% 100%;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -657,11 +657,21 @@ a {
 }
 
 .banner.bg-instalacoes {
-  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg'), url('../images/BALLET-1920X1080.jpg');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg'), url('../images/BALLET-1920X1080.jpg');
-  background-position: 0px 0px, 50% 71%, 50% 356%;
-  background-size: auto, cover, cover;
-  background-attachment: scroll, fixed, fixed;
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg');
+  background-position: 0px 0px, 50% 71%;
+  background-size: auto, cover;
+  background-attachment: scroll, fixed;
+}
+
+.banner.bg-instalacoes.bg-social {
+  position: relative;
+  display: block;
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/footloose-box.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/footloose-box.jpg');
+  background-position: 0px 0px, 50% 71%;
+  background-size: auto, cover;
+  background-attachment: scroll, fixed;
 }
 
 .banner.pg-espaco {
@@ -674,6 +684,15 @@ a {
   background-size: auto, cover;
 }
 
+.banner.bg-home {
+  height: 50vh;
+}
+
+.banner.bg-sociais {
+  background-image: -webkit-linear-gradient(270deg, null, null), url('../images/bg-projetos-so.JPG');
+  background-image: linear-gradient(180deg, null, null), url('../images/bg-projetos-so.JPG');
+}
+
 .column-0-padding {
   height: 480px;
   min-height: 400px;
@@ -681,7 +700,7 @@ a {
 }
 
 .content {
-  height: auto;
+  height: 100%;
 }
 
 .content.div-contato {
@@ -837,7 +856,7 @@ a {
   -ms-flex: 0 auto;
   flex: 0 auto;
   font-family: 'Fontawesome webfont', sans-serif;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 26px;
   text-align: justify;
   text-indent: 10px;
@@ -1721,7 +1740,10 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     height: 450px;
   }
   .banner.pg-escola {
-    height: 300px;
+    height: 40vh;
+    background-image: url('../images/bg-instalações.jpg');
+    background-position: 50% 0px;
+    background-size: 100%;
     background-attachment: scroll;
   }
   .banner.pg-escola.teatro {
@@ -1734,7 +1756,7 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     background-position: 50% 147%;
   }
   .banner.pg-projetos {
-    height: 40%;
+    height: 40vh;
     background-image: -webkit-linear-gradient(270deg, null, null), url('../images/bg-projetos-so.JPG');
     background-image: linear-gradient(180deg, null, null), url('../images/bg-projetos-so.JPG');
     background-size: auto, cover;
@@ -1750,18 +1772,26 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     background-attachment: scroll;
   }
   .banner.bg-convenios {
-    height: 40%;
+    height: 40vh;
+    background-image: -webkit-linear-gradient(270deg, null, null), url('../images/bg-convenios.jpg');
+    background-image: linear-gradient(180deg, null, null), url('../images/bg-convenios.jpg');
+    background-position: 0px 0px, 50% 0px;
+    background-size: auto, contain;
+    background-attachment: scroll, scroll;
   }
   .banner.pg-metodolog {
-    height: 40%;
+    height: 40vh;
+    background-image: -webkit-linear-gradient(270deg, null, null), url('../images/c700x420.jpg');
+    background-image: linear-gradient(180deg, null, null), url('../images/c700x420.jpg');
+    background-size: auto, contain;
   }
   .banner.bg-instalacoes {
-    height: 40%;
+    height: 40vh;
     background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg');
     background-image: linear-gradient(180deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg');
-    background-position: 0px 0px, 50% 21px;
-    background-size: auto, cover;
-    background-attachment: scroll, fixed;
+    background-position: 0px 0px, 50% -18px;
+    background-size: auto, contain;
+    background-attachment: scroll, scroll;
   }
   .banner.pg-espaco.daycare-banner {
     height: 160px;
@@ -1770,6 +1800,9 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     height: 350px;
     min-height: auto;
     margin-bottom: 30px;
+  }
+  .content {
+    height: auto;
   }
   .copy {
     color: #fff;

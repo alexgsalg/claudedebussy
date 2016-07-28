@@ -50,11 +50,9 @@ class SmartForm extends ComponentBase
     
     private function sendMail(Form $form, array $data) {
         $messageHTML = Twig::parse(html_entity_decode($form->message), ['data'=>$data]);
-        Mail::raw($messageHTML, function($message) use ($form, $data) {
+        Mail::rawTo($this->getAddress($form->to), $messageHTML, function($message) use ($form, $data) {
             $message->subject($form->subject);
-            if ($form->to) {
-                $message->to($this->getAddress($form->to));
-            }
+            
             if (isset($data['email'])) {
                 $message->from($data['email']);
             }

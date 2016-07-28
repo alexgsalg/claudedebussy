@@ -27,11 +27,17 @@ layout = 'default'
               </p>
               <p class="contato-p p-escola"><a class="p-link" href="mailto:claudesulnorte@gmail.com?subject=Email%20do%20site">claudesulnorte@gmail.com</a>
               </p>
-              <a class="social-contato social-icon-link w-inline-block" href="#">
+              <a class="social-contato social-icon-link w-inline-block" href="https://www.facebook.com/institutoclaudedebussy">
                 <div></div>
               </a>
               <a class="social-contato social-icon-link w-inline-block" href="https://www.instagram.com/claudedebussydf/" target="_blank">
                 <div></div>
+              </a>
+              <a class="social-contato social-icon-link w-inline-block" href="https://twitter.com/claudedebussydf" target="_blank">
+                <div></div>
+              </a>
+              <a class="social-contato social-icon-link w-inline-block" href="https://www.youtube.com/channel/UC7MnLVAfiU8UVWa9T0_MLXw" target="_blank">
+                <div></div>
               </a>
               <p class="p-curriculo p-escola p-famosos">Professores que desejarem enviar seu currículo, encaminhá-lo para o email.</p>
             </div>
@@ -68,7 +74,7 @@ layout = 'default'
         <h2 class="black section-heading titulo-contato">Receba as novidades da nossa escola!</h2>
         <div class="mailing-content">
           <div class="form-mailing w-form">
-            <form data-name="Email Form 2" id="email-form-2" name="email-form-2">
+                <form {{ add_attributes_smartform('newsletter') }} data-request-success="callbackForm(this, data)">
               <input class="email w-input" data-name="Email 2" id="email-2" maxlength="256" name="email" placeholder="Digite seu email" required="required" type="email">
               <input class="btn-cta-home w-button" data-wait="Aguarde..." type="submit" value="Assinar!" wait="Aguarde...">
             </form>

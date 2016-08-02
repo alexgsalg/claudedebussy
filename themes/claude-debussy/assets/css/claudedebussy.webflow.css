@@ -560,7 +560,7 @@ a {
 
 .banner.pg-escola {
   height: 50%;
-  background-image: url('../images/bg-instalacoes.jpg');
+  background-image: url('../images/bg-instalações.jpg');
   background-position: 50% 100%;
   background-size: cover;
   background-attachment: fixed;
@@ -1328,6 +1328,10 @@ a {
 
 .horario-tabela {
   margin-bottom: 20px;
+}
+
+.horario-tabela.nosp {
+  margin-bottom: 0px;
 }
 
 .box-professores {

@@ -466,7 +466,7 @@ a {
   display: block;
   padding: 15px 0px;
   color: #fff;
-  font-size: 15px;
+  font-size: 1em;
   line-height: 50%;
   text-align: center;
   text-transform: uppercase;
@@ -562,7 +562,8 @@ a {
   height: 50%;
   background-image: url('../images/bg-instalacoes.jpg');
   background-position: 50% 100%;
-  background-size: cover;
+  background-size: 100%;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
@@ -657,8 +658,8 @@ a {
 }
 
 .banner.bg-instalacoes {
-  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg');
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalacoes.jpg');
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalacoes.jpg');
   background-position: 0px 0px, 50% 71%;
   background-size: auto, cover;
   background-attachment: scroll, fixed;
@@ -822,6 +823,14 @@ a {
   color: #fff;
 }
 
+.btn-cta-home.blue {
+  background-color: #0d52b8;
+}
+
+.btn-cta-home.blue:hover {
+  background-color: #0c3674;
+}
+
 .p-home {
   font-family: Lato, sans-serif;
   font-size: 18px;
@@ -838,6 +847,7 @@ a {
   margin-top: 10px;
   padding-top: 30px;
   padding-bottom: 30px;
+  padding-left: 15px;
 }
 
 .sec-titulo {
@@ -1382,6 +1392,10 @@ a {
   margin-bottom: 10px;
 }
 
+.fb-daycare-box {
+  margin-top: 30px;
+}
+
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {
   opacity: 0;
   -webkit-transform: translate(0px, 50px);
@@ -1764,7 +1778,7 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   }
   .banner.pg-escola {
     height: 30vh;
-    background-image: url('../images/bg-instalações.jpg');
+    background-image: url('../images/bg-instalacoes.jpg');
     background-position: 50% 0px;
     background-size: 100%;
     background-attachment: scroll;
@@ -1810,8 +1824,8 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   }
   .banner.bg-instalacoes {
     height: 40vh;
-    background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg');
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalações.jpg');
+    background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalacoes.jpg');
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/bg-instalacoes.jpg');
     background-position: 0px 0px, 50% -18px;
     background-size: auto, contain;
     background-attachment: scroll, scroll;

@@ -98,7 +98,7 @@ a {
 }
 
 .button.cta-btn {
-  display: block;
+  display: inline-block;
   margin-right: auto;
   margin-left: auto;
   border: 1px solid #000;
@@ -121,6 +121,11 @@ a {
   right: 0px;
   bottom: 0px;
   width: 80%;
+}
+
+.button.cta-btn.daycare-pdf {
+  display: inline-block;
+  font-family: 'Fontawesome webfont', sans-serif;
 }
 
 .brand-text {
@@ -175,6 +180,8 @@ a {
   padding-left: 40px;
   -webkit-perspective-origin: 100% 50%;
   perspective-origin: 100% 50%;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 
 .section.section-escola.famosos {
@@ -208,6 +215,12 @@ a {
   padding-bottom: 11px;
 }
 
+.call-to-action-section.cta-home.daycare-info {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
 .call-to-action-heading {
   margin-top: 3px;
   margin-bottom: 0px;
@@ -215,6 +228,15 @@ a {
   font-size: 28px;
   font-weight: 400;
   text-align: center;
+}
+
+.call-to-action-heading.h2-space {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.call-to-action-heading.h2-space.left {
+  text-align: left;
 }
 
 .align-right {
@@ -437,6 +459,14 @@ a {
 
 .link.link-famosos {
   display: inline-block;
+}
+
+.link.nbsp {
+  display: inline;
+  margin-bottom: 0px;
+  padding-right: 5px;
+  text-align: left;
+  text-indent: 0px;
 }
 
 .grid-image {
@@ -829,6 +859,19 @@ a {
 
 .btn-cta-home.blue:hover {
   background-color: #0c3674;
+}
+
+.btn-cta-home.download {
+  margin-bottom: 30px;
+  font-family: 'Fontawesome webfont', sans-serif;
+}
+
+.btn-cta-home.download.clean {
+  border: 1px solid #900b15;
+  border-radius: 5px;
+  background-color: #edeff2;
+  color: #900b15;
+  font-weight: 400;
 }
 
 .p-home {
@@ -1396,6 +1439,21 @@ a {
   margin-top: 30px;
 }
 
+.btn-form {
+  margin-bottom: 5px;
+  padding: 5px 10px 5px 5px;
+  border-bottom: 5px solid #900b15;
+  background-color: transparent;
+  font-family: 'Fontawesome webfont', sans-serif;
+  color: #900b15;
+  font-size: 18px;
+}
+
+.btn-form:hover {
+  border-bottom-color: #cf404d;
+  color: #cf404d;
+}
+
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {
   opacity: 0;
   -webkit-transform: translate(0px, 50px);
@@ -1733,6 +1791,10 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
 }
 
 @media (max-width: 479px) {
+  .button.cta-btn.daycare-pdf {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
   .section.section-escola {
     padding: 30px 20px;
   }

@@ -189,6 +189,11 @@ a {
   padding-bottom: 10px;
 }
 
+.section.section-escola.small {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 .section.detalhe {
   position: static;
   padding-top: 20px;
@@ -467,6 +472,10 @@ a {
   padding-right: 5px;
   text-align: left;
   text-indent: 0px;
+}
+
+.link.nbsp:hover {
+  color: #cf404d;
 }
 
 .grid-image {
@@ -862,7 +871,7 @@ a {
 }
 
 .btn-cta-home.download {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-family: 'Fontawesome webfont', sans-serif;
 }
 
@@ -942,8 +951,14 @@ a {
   text-indent: 0px;
 }
 
+.p-escola.dark {
+  color: #404047;
+}
+
 .p-bold {
+  font-size: 20px;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .icon-dropdown {
@@ -1440,6 +1455,7 @@ a {
 }
 
 .btn-form {
+  margin-right: 25px;
   margin-bottom: 5px;
   padding: 5px 10px 5px 5px;
   border-bottom: 5px solid #900b15;
@@ -1452,6 +1468,17 @@ a {
 .btn-form:hover {
   border-bottom-color: #cf404d;
   color: #cf404d;
+}
+
+.btn-small {
+  margin-left: 5px;
+  border-bottom: 2px solid #cf404d;
+  color: #cf404d;
+}
+
+.btn-small:hover {
+  border-bottom-color: #900b15;
+  color: #900b15;
 }
 
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {

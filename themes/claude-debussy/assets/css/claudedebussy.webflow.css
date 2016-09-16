@@ -204,6 +204,10 @@ a {
   padding-bottom: 20px;
 }
 
+.section.section-post {
+  padding: 40px 60px;
+}
+
 .call-to-action-section {
   display: block;
   padding: 50px 40px;
@@ -224,6 +228,14 @@ a {
   padding-top: 40px;
   padding-bottom: 40px;
   text-align: center;
+}
+
+.call-to-action-section.cta-home.espetaculos-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0px;
 }
 
 .call-to-action-heading {
@@ -346,7 +358,7 @@ a {
 }
 
 .section-heading.tit-famosos {
-  padding-left: 15px;
+  padding-left: 20px;
   font-weight: 400;
 }
 
@@ -733,8 +745,17 @@ a {
   background-image: linear-gradient(180deg, null, null), url('../images/bg-projetos-so.JPG');
 }
 
+.banner.bg-post {
+  height: 110px;
+  background-image: url('../images/metodologia-ballet.jpg'), -webkit-linear-gradient(270deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33));
+  background-image: url('../images/metodologia-ballet.jpg'), linear-gradient(180deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33));
+  background-position: 50% 50%, 0px 0px;
+  background-size: cover, auto;
+  background-attachment: fixed, scroll;
+}
+
 .column-0-padding {
-  height: 480px;
+  height: 500px;
   min-height: 400px;
   text-align: justify;
 }
@@ -796,6 +817,10 @@ a {
 
 .home-cursos.professores {
   margin-top: 15px;
+}
+
+.home-cursos.red {
+  color: #404047;
 }
 
 .depoimento-single {
@@ -912,6 +937,10 @@ a {
   background-color: #900b15;
 }
 
+.sec-titulo.titulo-post {
+  position: relative;
+}
+
 .p-escola {
   -webkit-box-flex: 0;
   -webkit-flex: 0 auto;
@@ -955,27 +984,46 @@ a {
   color: #404047;
 }
 
+.p-escola.fb {
+  margin-top: 30px;
+  margin-bottom: 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 19px;
+}
+
+.p-escola.no-indent {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 26px;
+  font-weight: 300;
+  text-indent: 0px;
+}
+
 .p-bold {
+  font-family: 'Open Sans', sans-serif;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
 }
 
 .icon-dropdown {
-  top: 0px;
-  right: -20px;
+  position: absolute;
+  left: 12px;
+  top: 20px;
   bottom: 0px;
-  display: none;
+  display: block;
   overflow: visible;
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+  width: 20px;
+  height: 20px;
+  font-family: 'Fontawesome webfont', sans-serif;
+  color: #900b15;
   font-size: 23px;
+  text-align: center;
 }
 
 .dropdown-box.w--open {
   left: 300px;
   top: 0px;
+  z-index: 900;
   display: block;
 }
 
@@ -1220,6 +1268,11 @@ a {
   background-size: cover;
 }
 
+.div-slider-espaco.slider-3 {
+  background-image: url('../images/day-care-1024x341.png');
+  background-size: cover;
+}
+
 .arrow {
   color: #fff;
 }
@@ -1451,7 +1504,7 @@ a {
 }
 
 .fb-daycare-box {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .btn-form {
@@ -1479,6 +1532,158 @@ a {
 .btn-small:hover {
   border-bottom-color: #900b15;
   color: #900b15;
+}
+
+.blog {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.post-box {
+  width: 390px;
+  max-width: 400px;
+  min-width: 300px;
+  margin-bottom: 50px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.post-box.last {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.post-img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  background-image: url('../images/metodologia-ballet.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.post-info {
+  padding: 25px;
+}
+
+.post-content {
+  display: block;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(144, 11, 21, .5);
+}
+
+.post-content:hover {
+  box-shadow: 1px 1px 3px 0 rgba(144, 11, 21, .5);
+}
+
+.post-thumbnail {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.cartaz {
+  overflow: hidden;
+  height: 250px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.center-img {
+  display: inline-block;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+  text-align: center;
+}
+
+.sanfona {
+  display: block;
+  width: auto;
+  padding-right: 20px;
+  padding-left: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid rgba(144, 11, 21, .8);
+}
+
+.sanfona.w--open {
+  background-color: #edeff2;
+}
+
+.sanfona.first {
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: auto;
+  border-top: 1px solid rgba(144, 11, 21, .8);
+}
+
+.icon {
+  top: 0px;
+  right: 503px;
+  bottom: 0px;
+}
+
+.sanfona-drop.w--open {
+  position: relative;
+  padding: 20px;
+  border-left: 2px solid #edeff2;
+  background-color: transparent;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.nav-sanfona {
+  z-index: 500;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.dropdown-sanfona {
+  width: 100%;
+}
+
+.traco {
+  width: 40%;
+  height: 1px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  background-color: #cf404d;
 }
 
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {
@@ -1701,6 +1906,12 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   .content-footer-mobile {
     text-align: center;
   }
+  .post-box {
+    width: 50%;
+  }
+  .post-content {
+    min-width: 300px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1815,6 +2026,16 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   .contato-info {
     text-align: center;
   }
+  .post-box {
+    min-width: 300px;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
 }
 
 @media (max-width: 479px) {
@@ -1824,6 +2045,13 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   }
   .section.section-escola {
     padding: 30px 20px;
+  }
+  .section.section-escola.small {
+    padding-top: 0px;
+  }
+  .section.section-post {
+    padding-right: 20px;
+    padding-left: 20px;
   }
   .call-to-action-section.cta-home {
     padding: 35px 30px;
@@ -1843,7 +2071,7 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   }
   .section-heading.titulo {
     margin-bottom: 0px;
-    font-size: 22px;
+    font-size: 21px;
     line-height: 25px;
   }
   .section-heading.titulo-contato.black {
@@ -1939,13 +2167,26 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   .depoimento-1 {
     font-size: 13px;
   }
+  .btn-cta-home.download {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
   .sec-titulo {
     padding-top: 20px;
     padding-bottom: 20px;
   }
+  .sec-titulo.titulo-post {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
   .p-escola {
     width: 100%;
     font-size: 16px;
+  }
+  .p-escola.daycare-p {
+    font-size: 14px;
   }
   .slider-espaco {
     height: auto;
@@ -1962,6 +2203,12 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   .div-slider-espaco.slider-2 {
     min-height: 160px;
   }
+  .div-slider-espaco.slider-3 {
+    min-height: 160px;
+    background-position: 50% 0px;
+    background-size: cover;
+    background-attachment: scroll;
+  }
   .arrow-block {
     width: 40px;
   }
@@ -1975,6 +2222,16 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   .div-horario {
     font-size: 12px;
     text-align: center;
+  }
+  .btn-form {
+    margin-bottom: 20px;
+  }
+  .post-box {
+    min-width: 100%;
+  }
+  .post-content {
+    width: 100%;
+    min-width: 250px;
   }
 }
 

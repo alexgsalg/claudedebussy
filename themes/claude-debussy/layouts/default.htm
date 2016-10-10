@@ -112,6 +112,12 @@ description = "Default layout"
 
       $('.phone-ddd').mask(SPMaskBehavior, spOptions);
   </script>
+<script src="jquery.maskedinput.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  jQuery(function($){
+   $(".date").mask("99/99/9999",{placeholder:"___/___/_____"});
+});
+  </script>
 {% partial 'smartform-script' %}
         {% framework extras %}
         {% scripts %}

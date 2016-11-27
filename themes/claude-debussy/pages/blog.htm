@@ -1,0 +1,72 @@
+title = 'Blog'
+url = "/blog/:page?"
+layout = 'default'
+is_hidden = 0
+
+[viewBag]
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 15
+noPostsMessage = "Não foi encontrado nenhum post"
+sortOrder = "published_at desc"
+categoryPage = "blog/categorias"
+categoryFilter = "{{ :slug }}"
+postPage = "blog/post"
+
+[blogPosts recentsPosts]
+pageNumber = 1
+postsPerPage = 5
+sortOrder = "published_at desc"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/categorias"
+
+==
+<?php
+function onEnd(){
+// Optional - set the page title to the category name
+//blogPosts.posts
+if ($this->category)
+$this->page->title = 'Categoria '.ucfirst($this->category->name.' | Claude Debussy');
+}
+?>
+==
+<div class="banner danca pg-escola" id="home">
+      <div class="sec-titulo">
+        <h2 class="section-heading titulo">Blog</h2>
+      </div>
+    </div>
+    <section class="section section-escola" id="about">
+      <div class="content-info">
+        <p class="p-escola">As aulas de dança procuram inspirar a confiança física e mental através de exercícios que respeitam os limites de cada aluno. A dança desenvolve a boa postura, a elasticidade, a coordenação motora, o ritmo, a harmonia de movimentos e a criatividade.</p>
+        <div class="blog">
+
+        {% set posts = blogPosts.posts %}
+        {% for post in posts %}
+          <div class="post-box">
+            <div class="post-content">
+            {% if post.featured_images.count %}
+            {% set image_first = post.featured_images|first %}
+              <div class="post-img" 
+                  style="background-image: url('{{image_first.path}}');">
+              </div>
+            {% endif %}
+              <div class="post-info">
+                <h3 class="home-cursos red">{{ post.title }}</h3>
+                <p>{{ post.excerpt|raw }}</p>
+                <a class="btn-form" href="{{ post.url }}">Leia mais &nbsp;</a>
+              </div>
+            </div>
+          </div>
+          {% else %}
+
+            <!--se não existir posts-->
+            <div class="no-data">{{ noPostsMessage }}</div>
+            {% endfor %}
+
+        </div>
+      </div>
+    </section>

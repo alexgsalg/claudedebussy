@@ -1,0 +1,72 @@
+title = "Post"
+url = "/blog/post/:slug"
+layout = "default"
+description = "Dicas Jurídicas"
+is_hidden = 0
+
+[blogPost singlePost]
+slug = "{{ :slug }}"
+categoryPage = "blog/categoria"
+
+
+[blogPosts recentsPosts]
+pageNumber = 1
+postsPerPage = 5
+sortOrder = "published_at desc"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/categoria"
+
+
+==
+<?php
+function onEnd(){
+    if ($this->post){
+        $kw = array_map(function($p){
+            return $p['name'];
+        }, $this->post->tags->toArray());
+        $userPlus = RainLab\User\Models\User::where('email',$this->post->user->email)->first();
+        $this->post->extended_user = $userPlus;
+        $this->title = $this->singlePost->post->title;
+        $this->description = $this->singlePost->post->excerpt;
+        if (!empty($this->singlePost->post->featured_images)) {
+            $this->og_image = url($this->singlePost->post->featured_images[0]->path);
+        }
+        $this->og_url = url('/blog/post/' . $this->singlePost->post->slug);
+        $this->canonical_url = $this->og_url;
+        $this->keywords = implode(',', $kw);
+    }
+}
+?>
+==
+
+    <div class="sec-titulo titulo-post">
+      <h2 class="section-heading titulo">{{ post.title }}</h2>
+    </div>
+    
+    <section class="section section-post" id="about">
+      <div class="post-thumbnail"><img src="{{ (post.featured_images|first).path }}" width="729">
+      </div>
+      <div>
+        <p class="p-escola">{{ post.user.full_name }}, {{ post.published_at|date('d/m/Y') }}</p>
+      </div>
+      <div class="content-info">
+        <p class="p-escola">{{ post.content_html|raw }}</p>
+      </div>
+    </section>
+
+    <div class="detalhe section"></div>
+    <section class="call-to-action-section cta-home">
+      <div class="w-container">
+        <div class="w-row">
+          <div class="w-col w-col-8">
+            <h2 class="call-to-action-heading">Veja mais artigos de nosso Blog</h2>
+          </div>
+          <div class="align-right w-col w-col-4"><a class="button cta-btn" href="{{ 'blog' | page }}">Clique aqui</a>
+          </div>
+        </div>
+      </div>
+    </section>
+

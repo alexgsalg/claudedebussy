@@ -52,12 +52,13 @@ class SmartForm extends ComponentBase
         $messageHTML = Twig::parse(html_entity_decode($form->message), ['data'=>$data]);
         Mail::rawTo($this->getAddress($form->to), $messageHTML, function($message) use ($form, $data) {
             $message->subject($form->subject);
-            
+
             if (isset($data['email'])) {
                 $message->from($data['email']);
             }
         });
     }
+
     
     private function getAddress($addr) {
         $address = explode(',', $addr);

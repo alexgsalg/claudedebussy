@@ -33,12 +33,18 @@ description = "Default layout"
       <a class="logo-link w-nav-brand" href="{{ 'index' | page }}"><img class="logo w-hidden-medium w-hidden-small w-hidden-tiny" src="{{ 'assets/images/logo-bq.png' | theme }}" width="110"><img class="logo w-hidden-main" src="{{ 'assets/images/logo-bq-horizontal.png' | theme }}" width="128">
       </a>
     </div><img class="top-img-mobile w-hidden-main" src="{{ 'assets/images/bg-logo.jpg' | theme }}">
-    <nav class="nav-menu w-nav-menu" role="navigation"><a class="nav-link w-nav-link{% if this.page.id == 'index' %}w--current{% endif %}" href="{{ 'index' | page }}">Home</a>
+    <nav class="nav-menu w-nav-menu" role="navigation">
+    <a class="nav-link w-nav-link{% if this.page.id == 'index' %}w--current{% endif %}" href="{{ 'index' | page }}">Home</a>
       <div class="w-dropdown" data-delay="0" data-hover="1">
         <div class="dropdown nav-link w-dropdown-toggle">
           <div class="text-block-drop">escola</div> 
         </div>
-        <nav class="dropdown-box w-dropdown-list"><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'claude' %}w--current{% endif %}" href="{{ 'claude' | page }}">Sobre o Instituto</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'projetos-sociais' %}w--current{% endif %}" href="{{ 'escola/projetos-sociais' | page }}">Projetos Sociais</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'convenios' %}w--current{% endif %}" href="{{ 'escola/convenios' | page }}">CONVÊNIOS</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'metodologia' %}w--current{% endif %}" href="{{ 'escola/metodologia' | page }}">Metodologia</a><a class="drop-link nav-link w-dropdown-link{% if this.page.id == 'instalacoes' %}w--current{% endif %}" href="{{ 'escola/instalacoes' | page }}">Instalações</a>
+        <nav class="dropdown-box w-dropdown-list">
+        <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'claude' %}w--current{% endif %}" href="{{ 'claude' | page }}">Sobre o Instituto</a>
+        <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'projetos-sociais' %}w--current{% endif %}" href="{{ 'escola/projetos-sociais' | page }}">Projetos Sociais</a>
+        <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'convenios' %}w--current{% endif %}" href="{{ 'escola/convenios' | page }}">CONVÊNIOS</a>
+        <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'metodologia' %}w--current{% endif %}" href="{{ 'escola/metodologia' | page }}">Metodologia</a>
+        <a class="drop-link nav-link w-dropdown-link{% if this.page.id == 'instalacoes' %}w--current{% endif %}" href="{{ 'escola/instalacoes' | page }}">Instalações</a>
         </nav>
       </div>
       <div class="dropdown w-dropdown" data-delay="100" data-hover="1">
@@ -53,7 +59,10 @@ description = "Default layout"
         <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'ginastica-ritmica-e-artistica' %}w--current{% endif %}" href="{{ 'cursos/danca-artistica-solo' | page }}">D.A.S.</a>
         <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'saude-e-corpo' %}w--current{% endif %}" href="{{ 'cursos/saude-e-corpo' | page }}">Saúde e corpo</a>
         </nav>
-      </div><a class="nav-link w-nav-link {% if this.page.id == 'espaco-crianca' %}w--current{% endif %}" href="{{ 'espaco-crianca' | page }}">espaço criança</a><a class="nav-link w-nav-link {% if this.page.id == 'espetaculos' %}w--current{% endif %}" href="{{ 'espetaculo' | page }}">espetáculos</a><a class="nav-link w-nav-link {% if this.page.id == 'contato' %}w--current{% endif %}" href="{{'contato' | page }}">contato</a>
+      </div><a class="nav-link w-nav-link {% if this.page.id == 'espaco-crianca' %}w--current{% endif %}" href="{{ 'espaco-crianca' | page }}">espaço criança</a>
+      <a class="nav-link w-nav-link {% if this.page.id == 'espetaculos' %}w--current{% endif %}" href="{{ 'espetaculo' | page }}">espetáculos</a>
+      <a class="nav-link w-nav-link {% if this.page.id == 'contato' %}w--current{% endif %}" href="{{'blog' | page }}">Blog</a>
+      <a class="nav-link w-nav-link {% if this.page.id == 'contato' %}w--current{% endif %}" href="{{'contato' | page }}">contato</a>
     </nav>
     <div class="hamburger-button w-nav-button">
       <div class="nav-mobile w-icon-nav-menu"></div>

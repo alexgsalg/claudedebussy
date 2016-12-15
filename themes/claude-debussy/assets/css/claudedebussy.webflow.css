@@ -754,6 +754,14 @@ a {
   background-attachment: fixed, scroll;
 }
 
+.banner.bg-blog {
+  background-image: url('../images/bg-blog.jpg'), -webkit-linear-gradient(270deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/BALLET-1920X1080.jpg');
+  background-image: url('../images/bg-blog.jpg'), linear-gradient(180deg, rgba(0, 0, 0, .33), rgba(0, 0, 0, .33)), url('../images/BALLET-1920X1080.jpg');
+  background-position: 50% 50%, 0px 0px, 50% 100%;
+  background-size: cover, auto, cover;
+  background-attachment: scroll, scroll, fixed;
+}
+
 .column-0-padding {
   height: 500px;
   min-height: 400px;
@@ -1575,6 +1583,7 @@ a {
 }
 
 .btn-form {
+  display: inline-block;
   margin-right: 25px;
   margin-bottom: 5px;
   padding: 5px 10px 5px 5px;
@@ -1607,10 +1616,10 @@ a {
   display: -ms-flexbox;
   display: flex;
   margin-top: 20px;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -1662,6 +1671,7 @@ a {
 }
 
 .post-thumbnail {
+  display: block;
   margin-bottom: 40px;
   text-align: center;
 }
@@ -1885,6 +1895,10 @@ a {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+}
+
+.larger-row {
+  height: 70px;
 }
 
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {
@@ -2219,6 +2233,12 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   .p-escola.contato-p {
     text-align: center;
   }
+  .p-escola.tabela-preco-p.red {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
   .cursos-box {
     width: 100%;
   }
@@ -2247,6 +2267,9 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
+  }
+  .tabela-precos.height-price.gray {
+    overflow: visible;
   }
   .tabela-precos.grade-height {
     display: -webkit-box;

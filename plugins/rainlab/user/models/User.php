@@ -1,5 +1,7 @@
 <?php namespace RainLab\User\Models;
 
+use Str;
+use Auth;
 use Mail;
 use Event;
 use October\Rain\Auth\Models\User as UserBase;
@@ -51,85 +53,83 @@ class User extends UserBase
     /**
      * Purge attributes from data set.
      */
-    protected $purgeable = ['password_confirmation'];
+    protected $purgeable = ['password_confirmation', 'send_invite'];
+
+    protected $dates = [
+        'last_seen',
+        'deleted_at',
+        'created_at',
+        'updated_at',
+        'activated_at',
+        'last_login'
+    ];
 
     public static $loginAttribute = null;
 
     /**
-     * @return string Returns the name for the user's login.
+     * Sends the confirmation email to a user, after activating.
+     * @param  string $code
+     * @return void
      */
-    public function getLoginName()
+    public function attemptActivation($code)
     {
-        if (static::$loginAttribute !== null) {
-            return static::$loginAttribute;
+        $result = parent::attemptActivation($code);
+        if ($result === false) {
+            return false;
         }
 
-        return static::$loginAttribute = UserSettings::get('login_attribute', UserSettings::LOGIN_EMAIL);
+        if ($mailTemplate = UserSettings::get('welcome_template')) {
+            Mail::sendTo($this, $mailTemplate, $this->getNotificationVars());
+        }
+
+        Event::fire('rainlab.user.activate', [$this]);
+
+        return true;
     }
 
     /**
-     * Before validation event
+     * Converts a guest user to a registered one and sends an invitation notification.
      * @return void
      */
-    public function beforeValidate()
+    public function convertToRegistered($sendNotification = true)
     {
-        /*
-         * When the username is not used, the email is substituted.
-         */
-        if (
-            (!$this->username) ||
-            ($this->isDirty('email') && $this->getOriginal('email') == $this->username)
-        ) {
-            $this->username = $this->email;
-        }
-    }
-
-    public function afterLogin()
-    {
-        if ($this->trashed()) {
-            $this->last_login = $this->freshTimestamp();
-            $this->restore();
-
-            Mail::sendTo($this, 'rainlab.user::mail.reactivate', [
-                'name' => $this->name
-            ]);
-
-            Event::fire('rainlab.user.reactivate', [$this]);
-        }
-        else {
-            parent::afterLogin();
-        }
-
-        Event::fire('rainlab.user.login', [$this]);
-    }
-
-    /**
-     * After delete event
-     * @return void
-     */
-    public function afterDelete()
-    {
-        if ($this->isSoftDelete()) {
-            Event::fire('rainlab.user.deactivate', [$this]);
+        // Already a registered user
+        if (!$this->is_guest) {
             return;
         }
 
-        $this->avatar && $this->avatar->delete();
+        if ($sendNotification) {
+            $this->generatePassword();
+        }
 
-        parent::afterDelete();
+        $this->is_guest = false;
+        $this->save();
+
+        if ($sendNotification) {
+            $this->sendInvitation();
+        }
     }
 
-    public function scopeIsActivated($query)
+    //
+    // Constructors
+    //
+
+    /**
+     * Looks up a user by their email address.
+     * @return self
+     */
+    public static function findByEmail($email)
     {
-        return $query->where('is_activated', 1);
+        if (!$email) {
+            return;
+        }
+
+        return self::where('email', $email)->first();
     }
 
-    public function scopeFilterByGroup($query, $filter)
-    {
-        return $query->whereHas('groups', function($group) use ($filter) {
-            $group->whereIn('id', $filter);
-        });
-    }
+    //
+    // Getters
+    //
 
     /**
      * Gets a code for when the user is persisted to a cookie or session which identifies the user.
@@ -137,7 +137,9 @@ class User extends UserBase
      */
     public function getPersistCode()
     {
-        if (!$this->persist_code) {
+        $block = UserSettings::get('block_persistence', false);
+
+        if ($block || !$this->persist_code) {
             return parent::getPersistCode();
         }
 
@@ -171,38 +173,145 @@ class User extends UserBase
     }
 
     /**
-     * Sends the confirmation email to a user, after activating.
-     * @param  string $code
+     * Returns the name for the user's login.
+     * @return string
+     */
+    public function getLoginName()
+    {
+        if (static::$loginAttribute !== null) {
+            return static::$loginAttribute;
+        }
+
+        return static::$loginAttribute = UserSettings::get('login_attribute', UserSettings::LOGIN_EMAIL);
+    }
+
+    //
+    // Scopes
+    //
+
+    public function scopeIsActivated($query)
+    {
+        return $query->where('is_activated', 1);
+    }
+
+    public function scopeFilterByGroup($query, $filter)
+    {
+        return $query->whereHas('groups', function($group) use ($filter) {
+            $group->whereIn('id', $filter);
+        });
+    }
+
+    //
+    // Events
+    //
+
+    /**
+     * Before validation event
      * @return void
      */
-    public function attemptActivation($code)
+    public function beforeValidate()
     {
-        $result = parent::attemptActivation($code);
-        if ($result === false) {
-            return false;
+        /*
+         * Guests are special
+         */
+        if ($this->is_guest && !$this->password) {
+            $this->generatePassword();
         }
 
-        if ($mailTemplate = UserSettings::get('welcome_template')) {
-            Mail::sendTo($this, $mailTemplate, [
-                'name'  => $this->name,
-                'email' => $this->email
-            ]);
+        /*
+         * When the username is not used, the email is substituted.
+         */
+        if (
+            (!$this->username) ||
+            ($this->isDirty('email') && $this->getOriginal('email') == $this->username)
+        ) {
+            $this->username = $this->email;
         }
-
-        return true;
     }
 
     /**
-     * Looks up a user by their email address.
-     * @return self
+     * After create event
+     * @return void
      */
-    public static function findByEmail($email)
+    public function afterCreate()
     {
-        if (!$email) {
+        $this->restorePurgedValues();
+
+        if ($this->send_invite) {
+            $this->sendInvitation();
+        }
+    }
+
+    /**
+     * After login event
+     * @return void
+     */
+    public function afterLogin()
+    {
+        $this->last_login = $this->last_seen = $this->freshTimestamp();
+
+        if ($this->trashed()) {
+            $this->restore();
+
+            Mail::sendTo($this, 'rainlab.user::mail.reactivate', [
+                'name' => $this->name
+            ]);
+
+            Event::fire('rainlab.user.reactivate', [$this]);
+        }
+        else {
+            parent::afterLogin();
+        }
+
+        Event::fire('rainlab.user.login', [$this]);
+    }
+
+    /**
+     * After delete event
+     * @return void
+     */
+    public function afterDelete()
+    {
+        if ($this->isSoftDelete()) {
+            Event::fire('rainlab.user.deactivate', [$this]);
             return;
         }
 
-        return self::where('email', $email)->first();
+        $this->avatar && $this->avatar->delete();
+
+        parent::afterDelete();
+    }
+
+    //
+    // Banning
+    //
+
+    /**
+     * Ban this user, preventing them from signing in.
+     * @return void
+     */
+    public function ban()
+    {
+        Auth::findThrottleByUserId($this->id)->ban();
+    }
+
+    /**
+     * Remove the ban on this user.
+     * @return void
+     */
+    public function unban()
+    {
+        Auth::findThrottleByUserId($this->id)->unban();
+    }
+
+    /**
+     * Check if the user is banned.
+     * @return bool
+     */
+    public function isBanned()
+    {
+        $throttle = Auth::createThrottleModel()->where('user_id', $this->id)->first();
+        return $throttle ? $throttle->is_banned : false;
     }
 
     //
@@ -211,7 +320,7 @@ class User extends UserBase
 
     /**
      * Checks if the user has been seen in the last 5 minutes, and if not,
-     * updates the last_login timestamp to reflect their online status.
+     * updates the last_seen timestamp to reflect their online status.
      * @return void
      */
     public function touchLastSeen()
@@ -226,9 +335,10 @@ class User extends UserBase
         $this
             ->newQuery()
             ->where('id', $this->id)
-            ->update(['last_login' => $this->freshTimestamp()])
+            ->update(['last_seen' => $this->freshTimestamp()])
         ;
 
+        $this->last_seen = $this->freshTimestamp();
         $this->timestamps = $oldTimestamps;
     }
 
@@ -247,6 +357,53 @@ class User extends UserBase
      */
     public function getLastSeen()
     {
-        return $this->last_login ?: $this->created_at;
+        return $this->last_seen ?: $this->created_at;
+    }
+
+    //
+    // Utils
+    //
+
+    /**
+     * Returns the variables available when sending a user notification.
+     * @return array
+     */
+    protected function getNotificationVars()
+    {
+        $vars = [
+            'name'  => $this->name,
+            'email' => $this->email,
+            'username' => $this->username,
+            'login' => $this->getLogin(),
+            'password' => $this->getOriginalHashValue('password'),
+        ];
+
+        /*
+         * Extensibility
+         */
+        $result = Event::fire('rainlab.user.getNotificationVars', [$this]);
+        if ($result && is_array($result)) {
+            $vars = call_user_func_array('array_merge', $result) + $vars;
+        }
+
+        return $vars;
+    }
+
+    /**
+     * Sends an invitation to the user using template "rainlab.user::mail.invite".
+     * @return void
+     */
+    protected function sendInvitation()
+    {
+        Mail::sendTo($this, 'rainlab.user::mail.invite', $this->getNotificationVars());
+    }
+
+    /**
+     * Assigns this user with a random password.
+     * @return void
+     */
+    protected function generatePassword()
+    {
+        $this->password = $this->password_confirmation = Str::random(6);
     }
 }

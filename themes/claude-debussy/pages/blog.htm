@@ -1,29 +1,31 @@
-title = 'Blog'
+title = "Blog"
 url = "/blog/:page?"
-layout = 'default'
+layout = "default"
 is_hidden = 0
 
 [viewBag]
 
 [blogPosts]
 pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
 postsPerPage = 15
 noPostsMessage = "Não foi encontrado nenhum post"
 sortOrder = "published_at desc"
 categoryPage = "blog/categorias"
-categoryFilter = "{{ :slug }}"
 postPage = "blog/post"
 
 [blogPosts recentsPosts]
 pageNumber = 1
 postsPerPage = 5
-sortOrder = "published_at desc"
+noPostsMessage = "No posts found"
+sortOrder = "published_at asc"
+categoryPage = "acrobacias-aereas/acrobacias-aereas"
+postPage = "blog/post"
 
 [blogCategories]
 slug = "{{ :slug }}"
 displayEmpty = 0
 categoryPage = "blog/categorias"
-
 ==
 <?php
 function onEnd(){
@@ -42,8 +44,8 @@ $this->page->title = 'Categoria '.ucfirst($this->category->name.' | Claude Debus
     <section class="section section-escola" id="about">
       <div class="content-info">
         <p class="p-escola">As aulas de dança procuram inspirar a confiança física e mental através de exercícios que respeitam os limites de cada aluno. A dança desenvolve a boa postura, a elasticidade, a coordenação motora, o ritmo, a harmonia de movimentos e a criatividade.</p>
-        <h3 class="home-cursos red">Colônia de Férias 2017</h3>
-        <p class="p-escola">O Claude Debussy vem inovando cada vez mais para que seu filho alcance o potêncial máximo. E melhor ainda, fazemos isso de maneira que eles se divirtão mais. Venha conhecer mais de nossa Colônia de férias e matricule seu filho.</p>
+        <h3 class="home-cursos red">Colônia de Férias 2017 - 09 à 27 de janeiro/2017</h3>
+        <p class="p-escola">O Claude Debussy vem inovando cada vez mais para que seu filho alcance o potêncial máximo. E melhor ainda, fazemos isso de maneira que eles se divirtam mais. Venha conhecer mais de nossa Colônia de férias e matricule seu filho.</p>
         <a class="btn-form" target="_blank" href="{{ 'assets/arquivos/tabela-precos-colonia-2017.pdf' | theme }}">Tabela de preços</a>
         <a class="btn-form" target="_blank" href="{{ 'assets/arquivos/grade-horaria-colonia-2017.pdf' | theme }}">Grade horária</a>
         <br><br><br>

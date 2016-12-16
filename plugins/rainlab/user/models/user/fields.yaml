@@ -20,7 +20,30 @@ tabs:
             tab: rainlab.user::lang.user.account
             span: full
 
-        password:
+        send_invite:
+            type: checkbox
+            label: rainlab.user::lang.user.send_invite
+            comment: rainlab.user::lang.user.send_invite_comment
+            tab: rainlab.user::lang.user.account
+            default: true
+            context: create
+
+        block_mail:
+            label: rainlab.user::lang.user.block_mail
+            tab: rainlab.user::lang.user.account
+            type: checkbox
+            span: full
+            cssClass: field-align-above
+            context: update
+
+        password@create:
+            label: rainlab.user::lang.user.create_password
+            comment: rainlab.user::lang.user.create_password_comment
+            tab: rainlab.user::lang.user.account
+            type: password
+            span: left
+
+        password@update:
             label: rainlab.user::lang.user.reset_password
             comment: rainlab.user::lang.user.reset_password_comment
             tab: rainlab.user::lang.user.account
@@ -33,6 +56,7 @@ tabs:
             tab: rainlab.user::lang.user.account
             type: password
             span: right
+            context: [create, update]
 
         username:
             label: rainlab.user::lang.user.username

@@ -1,8 +1,9 @@
 <?php namespace RainLab\User\Components;
 
-use Auth;
-use Flash;
 use Lang;
+use Auth;
+use Event;
+use Flash;
 use Request;
 use Redirect;
 use Cms\Classes\Page;
@@ -82,7 +83,14 @@ class Session extends ComponentBase
      */
     public function onLogout()
     {
+        $user = Auth::getUser();
+
         Auth::logout();
+
+        if ($user) {
+            Event::fire('rainlab.user.logout', [$user]);
+        }
+
         $url = post('redirect', Request::fullUrl());
         Flash::success(Lang::get('rainlab.user::lang.session.logout'));
 

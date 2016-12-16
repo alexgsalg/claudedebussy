@@ -28,3 +28,13 @@ columns:
 
     created_at:
         label: rainlab.user::lang.user.created_at
+        type: timetense
+
+    last_seen:
+        label: rainlab.user::lang.user.last_seen
+        type: timetense
+
+    is_guest:
+        label: rainlab.user::lang.user.is_guest
+        type: switch
+        invisible: true

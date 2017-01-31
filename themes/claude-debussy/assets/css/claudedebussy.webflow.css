@@ -394,6 +394,10 @@ a {
   margin-bottom: 40px;
 }
 
+.align-left {
+  text-align: left !important;
+}
+
 .form-field {
   min-height: 45px;
   margin-top: 20px;

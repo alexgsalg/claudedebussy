@@ -27,5 +27,9 @@ class Plugin extends PluginBase {
             ]
         ];
     }
+    public function register()
+    {
+        $this->registerConsoleCommand('xpbox.smartform.orcamento', 'Xpbox\SmartForm\Console\Orcamento');
+    }
 
 }

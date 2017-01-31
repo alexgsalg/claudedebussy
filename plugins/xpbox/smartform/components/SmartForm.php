@@ -6,6 +6,7 @@ use Xpbox\Smartform\Models\Leads;
 use Twig;
 use Request;
 use Mail;
+use Event;
 
 class SmartForm extends ComponentBase
 {
@@ -41,8 +42,9 @@ class SmartForm extends ComponentBase
             throw new \Symfony\Component\Translation\Exception\NotFoundResourceException("Form name $formName not exists");
         }
         
-        Leads::create(['form_id'=>$form->id, 'data'=>$data]);
-        
+        $lead = Leads::create(['form_id'=>$form->id, 'data'=>$data]);
+        $data['id'] = $lead->id;
+
         $this->sendMail($form, $data);
         
         return ['error'=>false, 'message'=> 'sucesso'];
@@ -57,6 +59,8 @@ class SmartForm extends ComponentBase
                 $message->from($data['email']);
             }
         });
+
+        Event::fire('xpbox.smartform.send.email', [$form, $data]);
     }
 
     

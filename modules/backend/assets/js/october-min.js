@@ -907,7 +907,7 @@ if(this.pageTitleTemplate===undefined)
 this.pageTitleTemplate=$title.data('titleTemplate')
 $title.text(this.pageTitleTemplate.replace('%s',title))}
 OctoberLayout.prototype.updateLayout=function(title){var $children,$el,fixedWidth,margin
-$('.layout-cell.width-fix, [data-calculate-width]').each(function(){$children=$(this).children()
+$('[data-calculate-width]').each(function(){$children=$(this).children()
 if($children.length>0){fixedWidth=0
 $children.each(function(){$el=$(this)
 margin=$el.data('oc.layoutMargin')
@@ -953,8 +953,8 @@ return false})
 $('.fix-button-container',this.$el).append(this.$fixButton)
 this.$sideNavItems.click(function(){if($(this).data('no-side-panel')){return}
 if(Modernizr.touch&&$(window).width()<self.options.breakpoint){if($(this).data('menu-item')==self.visibleItemId&&self.panelVisible){self.hideSidePanel()
-return}else
-self.displaySidePanel()}
+return}
+else{self.displaySidePanel()}}
 self.displayTab(this)
 return false})
 if(!Modernizr.touch){self.$sideNav.mouseleave(function(){clearTimeout(self.panelOpenTimeout)})
@@ -966,7 +966,8 @@ self.tabOpenTimeout=setTimeout(function(){self.displaySidePanel()
 self.displayTab(_this)},self.tabOpenDelay)}})
 self.$sideNavItems.mouseleave(function(){clearTimeout(self.tabOpenTimeout)})
 $(window).resize(function(){self.updatePanelPosition()
-self.updateActiveTab()})}else{$('#layout-body').click(function(){if(self.panelVisible){self.hideSidePanel()
+self.updateActiveTab()})}
+else{$('#layout-body').click(function(){if(self.panelVisible){self.hideSidePanel()
 return false}})
 self.$el.on('close.oc.sidePanel',function(){self.hideSidePanel()})}
 this.updateActiveTab()}
@@ -1342,3 +1343,8 @@ img.src=source})}};return o;};assetManager=new AssetManager();if($.oc===undefine
 $.oc={}
 $.oc.escapeHtmlString=function(string){var htmlEscapes={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#x27;','/':'&#x2F;'},htmlEscaper=/[&<>"'\/]/g
 return(''+string).replace(htmlEscaper,function(match){return htmlEscapes[match];})}
+if(!!window.MSInputMethodContext&&!!document.documentMode){$(window).on('resize',function(){fixMediaManager()
+fixSidebar()})
+function fixMediaManager(){var $el=$('div[data-control="media-manager"] .control-scrollpad')
+$el.height($el.parent().height())}
+function fixSidebar(){$('#layout-sidenav').height(Math.max($('#layout-body').innerHeight(),$(window).height()-$('#layout-mainmenu').height()))}}

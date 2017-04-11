@@ -27,6 +27,11 @@ class ListController extends ControllerBehavior
     protected $primaryDefinition;
 
     /**
+     * @var array List configuration, keys for alias and value for config objects.
+     */
+    protected $listConfig = [];
+
+    /**
      * @var \Backend\Classes\WidgetBase Reference to the list widget object.
      */
     protected $listWidgets = [];
@@ -102,7 +107,7 @@ class ListController extends ControllerBehavior
             $definition = $this->primaryDefinition;
         }
 
-        $listConfig = $this->makeConfig($this->listDefinitions[$definition], $this->requiredConfig);
+        $listConfig = $this->controller->listGetConfig($definition);
 
         /*
          * Create the model
@@ -132,6 +137,7 @@ class ListController extends ControllerBehavior
             'showCheckboxes',
             'showTree',
             'treeExpanded',
+            'customViewPath',
         ];
 
         foreach ($configFieldsToTransfer as $field) {
@@ -155,6 +161,10 @@ class ListController extends ControllerBehavior
 
         $widget->bindEvent('list.extendQuery', function ($query) use ($definition) {
             $this->controller->listExtendQuery($query, $definition);
+        });
+
+        $widget->bindEvent('list.extendRecords', function ($records) use ($definition) {
+            $this->controller->listExtendRecords($records, $definition);
         });
 
         $widget->bindEvent('list.injectRowClass', function ($record) use ($definition) {
@@ -279,7 +289,7 @@ class ListController extends ControllerBehavior
             throw new ApplicationException(Lang::get('backend::lang.list.missing_parent_definition', compact('definition')));
         }
 
-        $listConfig = $this->makeConfig($this->listDefinitions[$definition], $this->requiredConfig);
+        $listConfig = $this->controller->listGetConfig($definition);
 
         /*
          * Create the model
@@ -313,7 +323,7 @@ class ListController extends ControllerBehavior
             Flash::error(Lang::get('backend::lang.list.delete_selected_empty'));
         }
 
-        return $this->controller->listRefresh();
+        return $this->controller->listRefresh($definition);
     }
 
     /**
@@ -331,19 +341,41 @@ class ListController extends ControllerBehavior
             $definition = $this->primaryDefinition;
         }
 
-        $collection = [];
+        $listConfig = $this->controller->listGetConfig($definition);
+
+        $vars = [
+            'toolbar' => null,
+            'filter' => null,
+            'list' => null,
+        ];
 
         if (isset($this->toolbarWidgets[$definition])) {
-            $collection[] = $this->toolbarWidgets[$definition]->render();
+            $vars['toolbar'] = $this->toolbarWidgets[$definition];
         }
 
         if (isset($this->filterWidgets[$definition])) {
-            $collection[] = $this->filterWidgets[$definition]->render();
+            $vars['filter'] = $this->filterWidgets[$definition];
         }
 
-        $collection[] = $this->listWidgets[$definition]->render();
+        $vars['list'] = $this->listWidgets[$definition];
 
-        return implode(PHP_EOL, $collection);
+        return $this->listMakePartial('container', $vars);
+    }
+
+    /**
+     * Controller accessor for making partials within this behavior.
+     * @param string $partial
+     * @param array $params
+     * @return string Partial contents
+     */
+    public function listMakePartial($partial, $params = [])
+    {
+        $contents = $this->controller->makePartial('list_'.$partial, $params + $this->vars, false);
+        if (!$contents) {
+            $contents = $this->makePartial($partial, $params);
+        }
+
+        return $contents;
     }
 
     /**
@@ -377,18 +409,26 @@ class ListController extends ControllerBehavior
         return array_get($this->listWidgets, $definition);
     }
 
+    /**
+     * Returns the configuration used by this behavior.
+     * @return \Backend\Classes\WidgetBase
+     */
+    public function listGetConfig($definition = null)
+    {
+        if (!$definition) {
+            $definition = $this->primaryDefinition;
+        }
+
+        if (!$config = array_get($this->listConfig, $definition)) {
+            $config = $this->listConfig[$definition] = $this->makeConfig($this->listDefinitions[$definition], $this->requiredConfig);
+        }
+
+        return $config;
+    }
+
     //
     // Overrides
     //
-
-    /**
-     * Called before the list columns are defined.
-     * @param Backend\Widgets\List $host The hosting list widget
-     * @return void
-     */
-    // public function listExtendColumnsBefore($host)
-    // {
-    // }
 
     /**
      * Called after the list columns are defined.
@@ -428,7 +468,16 @@ class ListController extends ControllerBehavior
     }
 
     /**
-     * Controller override: Extend the query used for populating the filter 
+     * Controller override: Extend the records used for populating the list
+     * after the query is processed.
+     * @param Illuminate\Contracts\Pagination\LengthAwarePaginator|Illuminate\Database\Eloquent\Collection $records
+     */
+    public function listExtendRecords($records, $definition = null)
+    {
+    }
+
+    /**
+     * Controller override: Extend the query used for populating the filter
      * options before the default query is processed.
      * @param \October\Rain\Database\Builder $query
      * @param array $scope

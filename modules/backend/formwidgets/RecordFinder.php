@@ -130,6 +130,8 @@ class RecordFinder extends FormWidgetBase
             $this->searchWidget = $this->makeSearchWidget();
             $this->searchWidget->bindToController();
 
+            $this->listWidget->setSearchTerm($this->searchWidget->getActiveTerm());
+
             /*
              * Link the Search Widget to the List Widget
              */
@@ -137,8 +139,6 @@ class RecordFinder extends FormWidgetBase
                 $this->listWidget->setSearchTerm($this->searchWidget->getActiveTerm());
                 return $this->listWidget->onRefresh();
             });
-
-            $this->searchWidget->setActiveTerm(null);
         }
     }
 
@@ -154,7 +154,7 @@ class RecordFinder extends FormWidgetBase
     public function onRefresh()
     {
         list($model, $attribute) = $this->resolveModelAttribute($this->valueFrom);
-        $model->{$attribute} = post($this->formField->getName());
+        $model->{$attribute} = post($this->getFieldName());
 
         $this->prepareVars();
         return ['#'.$this->getId('container') => $this->makePartial('recordfinder')];
@@ -237,6 +237,15 @@ class RecordFinder extends FormWidgetBase
     public function onFindRecord()
     {
         $this->prepareVars();
+
+        /*
+         * Purge the search term stored in session
+         */
+        if ($this->searchWidget) {
+            $this->listWidget->setSearchTerm(null);
+            $this->searchWidget->setActiveTerm(null);
+        }
+
         return $this->makePartial('recordfinder_form');
     }
 
@@ -263,7 +272,7 @@ class RecordFinder extends FormWidgetBase
         }
         elseif ($scopeMethod = $this->scope) {
             $widget->bindEvent('list.extendQueryBefore', function($query) use ($scopeMethod) {
-                $query->$scopeMethod();
+                $query->$scopeMethod($this->model);
             });
         }
         else {

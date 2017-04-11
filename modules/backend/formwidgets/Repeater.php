@@ -48,10 +48,15 @@ class Repeater extends FormWidgetBase
      */
     protected $formWidgets = [];
 
-     /**
-      * @var bool Stops nested repeaters populating from previous sibling.
-      */
+    /**
+     * @var bool Stops nested repeaters populating from previous sibling.
+     */
     protected static $onAddItemCalled = false;
+
+    /**
+     * @var int Maximum repeated items allowable.
+     */
+    protected $maxItems = null;
 
     /**
      * {@inheritDoc}
@@ -62,6 +67,7 @@ class Repeater extends FormWidgetBase
             'form',
             'prompt',
             'sortable',
+            'maxItems',
         ]);
 
         if (!self::$onAddItemCalled) {
@@ -86,6 +92,7 @@ class Repeater extends FormWidgetBase
         $this->vars['indexName'] = self::INDEX_PREFIX.$this->formField->getName(false).'[]';
         $this->vars['prompt'] = $this->prompt;
         $this->vars['formWidgets'] = $this->formWidgets;
+        $this->vars['maxItems'] = $this->maxItems;
     }
 
     /**
@@ -114,7 +121,9 @@ class Repeater extends FormWidgetBase
 
         $itemIndexes = post(self::INDEX_PREFIX.$this->formField->getName(false), $loadValue);
 
-        if (!is_array($itemIndexes)) return;
+        if (!is_array($itemIndexes)) {
+            return;
+        }
 
         foreach ($itemIndexes as $itemIndex) {
             $this->makeItemFormWidget($itemIndex);
@@ -125,13 +134,16 @@ class Repeater extends FormWidgetBase
     protected function makeItemFormWidget($index = 0)
     {
         $loadValue = $this->getLoadValue();
-        if (!is_array($loadValue)) $loadValue = [];
+        if (!is_array($loadValue)) {
+            $loadValue = [];
+        }
 
         $config = $this->makeConfig($this->form);
         $config->model = $this->model;
         $config->data = array_get($loadValue, $index, []);
         $config->alias = $this->alias . 'Form'.$index;
-        $config->arrayName = $this->formField->getName().'['.$index.']';
+        $config->arrayName = $this->getFieldName().'['.$index.']';
+        $config->isNested = true;
 
         $widget = $this->makeWidget('Backend\Widgets\Form', $config);
         $widget->bindToController();
@@ -158,4 +170,12 @@ class Repeater extends FormWidgetBase
         // Useful for deleting relations
     }
 
+    public function onRefresh()
+    {
+        $index = post('_repeater_index');
+
+        $widget = $this->makeItemFormWidget($index);
+
+        return $widget->onRefresh();
+    }
 }

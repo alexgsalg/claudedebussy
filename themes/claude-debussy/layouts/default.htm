@@ -28,6 +28,7 @@ description = "Default layout"
   <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
 </head>
 <body class="body">
+  <!--  NAVBAR  -->
   <div class="left-navigation w-nav" data-animation="over-right" data-collapse="medium" data-doc-height="1" data-duration="100" data-no-scroll="1">
     <div>
       <a class="logo-link w-nav-brand" href="{{ 'index' | page }}"><img class="logo w-hidden-medium w-hidden-small w-hidden-tiny" src="{{ 'assets/images/logo-bq.png' | theme }}" width="110"><img class="logo w-hidden-main" src="{{ 'assets/images/logo-bq-horizontal.png' | theme }}" width="128">
@@ -37,7 +38,7 @@ description = "Default layout"
     <a class="nav-link w-nav-link{% if this.page.id == 'index' %}w--current{% endif %}" href="{{ 'index' | page }}">Home</a>
       <div class="w-dropdown" data-delay="0" data-hover="1">
         <div class="dropdown nav-link w-dropdown-toggle">
-          <div class="text-block-drop">escola</div> 
+          <div class="text-block-drop">escola <span class="icon">&#xf107</span></div> 
         </div>
         <nav class="dropdown-box w-dropdown-list">
         <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'claude' %}w--current{% endif %}" href="{{ 'claude' | page }}">Sobre o Instituto</a>
@@ -46,20 +47,21 @@ description = "Default layout"
         <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'metodologia' %}w--current{% endif %}" href="{{ 'escola/metodologia' | page }}">Metodologia</a>
         <a class="drop-link nav-link w-dropdown-link{% if this.page.id == 'instalacoes' %}w--current{% endif %}" href="{{ 'escola/instalacoes' | page }}">Instalações</a>
         </nav>
-      </div>
+      </div> 
       <div class="dropdown w-dropdown" data-delay="100" data-hover="1">
         <div class="dropdown nav-link w-dropdown-toggle">
-          <div class="text-block-drop">cursos</div> 
+          <div class="text-block-drop">cursos <span class="icon">&#xf107</span></div> 
         </div>
         <nav class="drop-2 dropdown-box w-dropdown-list">
         <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'danca' %}w--current{% endif %}" href="{{'cursos/danca' | page }}">Cursos de Dança</a>
         <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'teatro' %}w--current{% endif %}" href="{{ 'cursos/teatro' | page }}">CURSOS DE Teatro</a><a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'musica' %}w--current{% endif %}" href="{{ 'cursos/musica' | page }}">CURSOS DE Música</a>
         <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'artes-circenses' %}w--current{% endif %}" href="{{ 'cursos/artes-circenses' | page }}">artes circenses</a>
         <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'artes-marciais' %}w--current{% endif %}" href="{{ 'cursos/artes-marciais' | page }}">Artes marciais</a>
-        <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'ginastica-ritmica-e-artistica' %}w--current{% endif %}" href="{{ 'cursos/danca-artistica-solo' | page }}">D.A.S.</a>
+        <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'ginastica-ritmica-e-artistica' %}w--current{% endif %}" href="{{ 'cursos/danca-artistica-solo' | page }}">Ginástica Ritmica</a>
         <a class="drop-link nav-link w-dropdown-link {% if this.page.id == 'saude-e-corpo' %}w--current{% endif %}" href="{{ 'cursos/saude-e-corpo' | page }}">Saúde e corpo</a>
         </nav>
       </div><a class="nav-link w-nav-link {% if this.page.id == 'espaco-crianca' %}w--current{% endif %}" href="{{ 'espaco-crianca' | page }}">espaço criança</a>
+      <a class="nav-link w-nav-link {% if this.page.id == 'colonia-ferias' %}w--current{% endif %}" href="{{ 'colonia-ferias' | page }}">Colônia de férias</a>
       <a class="nav-link w-nav-link {% if this.page.id == 'espetaculos' %}w--current{% endif %}" href="{{ 'espetaculo' | page }}">espetáculos</a>
       <a class="nav-link w-nav-link {% if this.page.id == 'blog' %}w--current{% endif %}" href="{{ 'blog' | page }}">Blog</a>
       <a class="nav-link w-nav-link {% if this.page.id == 'contato' %}w--current{% endif %}" href="{{ 'contato' | page }}">contato</a>
@@ -79,7 +81,7 @@ description = "Default layout"
           <a class="social-icon-link w-inline-block" href="https://www.youtube.com/channel/UC7MnLVAfiU8UVWa9T0_MLXw" target="_blank"><img src="{{ 'assets/images/youtube-white.png' | theme }}" width="26">
           </a>
         </div>
-        <div class="copy w-hidden-medium w-hidden-small w-hidden-tiny">Copyright© 2016 Claude Debussy
+        <div class="copy w-hidden-medium w-hidden-small w-hidden-tiny">Copyright© 2017 Claude Debussy
           <br><span><span class="desenv">Desenvolvido por <a class="desenv-a" target="_blank" href="http://www.drominicom.br">Dromini - Design &amp; Web</a></span></span>
         </div>
       </div>

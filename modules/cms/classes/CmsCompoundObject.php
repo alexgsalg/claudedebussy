@@ -6,6 +6,7 @@ use Cache;
 use Config;
 use Cms\Twig\Loader as TwigLoader;
 use Cms\Twig\Extension as CmsTwigExtension;
+use Cms\Components\ViewBag;
 use System\Twig\Extension as SystemTwigExtension;
 use October\Rain\Halcyon\Processors\SectionParser;
 use Twig_Environment;
@@ -206,7 +207,7 @@ class CmsCompoundObject extends CmsObject
 
     /**
      * Returns a component by its name.
-     * This method is used only in the back-end and for internal system needs when 
+     * This method is used only in the back-end and for internal system needs when
      * the standard way to access components is not an option.
      * @param string $componentName Specifies the component name.
      * @return \Cms\Classes\ComponentBase Returns the component instance or null.
@@ -346,9 +347,9 @@ class CmsCompoundObject extends CmsObject
 
     /**
      * Returns the configured view bag component.
-     * This method is used only in the back-end and for internal system needs when 
+     * This method is used only in the back-end and for internal system needs when
      * the standard way to access components is not an option.
-     * @return \Cms\Classes\ViewBag Returns the view bag component instance.
+     * @return \Cms\Components\ViewBag Returns the view bag component instance.
      */
     public function getViewBag()
     {

@@ -9,18 +9,23 @@ use Symfony\Component\Console\Input\InputArgument;
 use System\Classes\CombineAssets;
 
 /**
- * Utility command
+ * Console command for other utility commands.
  *
- * Supported commands:
+ * This provides functionality that doesn't quite deserve its own dedicated
+ * console class. It is used mostly developer tools and maintenance tasks.
  *
- *   - purge thumbs: Deletes all thumbnail files in the uploads directory.
- *   - git pull: Perform "git pull" on all plugins and themes.
- *   - compile assets: Compile registered Language, LESS and JS files.
- *   - compile js: Compile registered JS files only.
- *   - compile less: Compile registered LESS files only.
- *   - compile scss: Compile registered SCSS files only.
- *   - compile lang: Compile registered Language files only.
+ * Currently supported commands:
  *
+ * - purge thumbs: Deletes all thumbnail files in the uploads directory.
+ * - git pull: Perform "git pull" on all plugins and themes.
+ * - compile assets: Compile registered Language, LESS and JS files.
+ * - compile js: Compile registered JS files only.
+ * - compile less: Compile registered LESS files only.
+ * - compile scss: Compile registered SCSS files only.
+ * - compile lang: Compile registered Language files only.
+ *
+ * @package october\system
+ * @author Alexey Bobkov, Samuel Georges
  */
 class OctoberUtil extends Command
 {
@@ -54,9 +59,9 @@ class OctoberUtil extends Command
         $method = 'util'.studly_case($command);
 
         $methods = preg_grep('/^util/', get_class_methods(get_called_class()));
-        $list = array_map(function($item){
+        $list = array_map(function ($item) {
             return "october:".snake_case($item, " ");
-        },$methods);
+        }, $methods);
 
         if (!$this->argument('name')) {
             $message = 'There are no commands defined in the "util" namespace.';

@@ -63,7 +63,8 @@ class ServiceProvider extends ModuleServiceProvider
     protected function registerComponents()
     {
         ComponentManager::instance()->registerComponents(function ($manager) {
-            $manager->registerComponent('Cms\Classes\ViewBag', 'viewBag');
+            $manager->registerComponent('Cms\Components\ViewBag', 'viewBag');
+            $manager->registerComponent('Cms\Components\Resources', 'resources');
         });
     }
 
@@ -72,7 +73,7 @@ class ServiceProvider extends ModuleServiceProvider
      */
     protected function registerThemeLogging()
     {
-        CmsObject::extend(function($model) {
+        CmsObject::extend(function ($model) {
             ThemeLog::bindEventsToModel($model);
         });
     }
@@ -85,7 +86,7 @@ class ServiceProvider extends ModuleServiceProvider
         /*
          * Register asset bundles
          */
-        CombineAssets::registerCallback(function($combiner) {
+        CombineAssets::registerCallback(function ($combiner) {
             $combiner->registerBundle('~/modules/cms/widgets/mediamanager/assets/js/mediamanager-browser.js');
             $combiner->registerBundle('~/modules/cms/widgets/mediamanager/assets/less/mediamanager.less');
         });
@@ -274,7 +275,7 @@ class ServiceProvider extends ModuleServiceProvider
                     'description' => 'cms::lang.theme.settings_menu_description',
                     'category'    => SettingsManager::CATEGORY_CMS,
                     'icon'        => 'icon-picture-o',
-                    'url'         => Backend::URL('cms/themes'),
+                    'url'         => Backend::url('cms/themes'),
                     'permissions' => ['cms.manage_themes'],
                     'order'       => 200
                 ],

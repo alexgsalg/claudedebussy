@@ -191,12 +191,13 @@ class SettingsManager
      * Registers a callback function that defines setting items.
      * The callback function should register setting items by calling the manager's
      * registerSettingItems() function. The manager instance is passed to the
-     * callback function as an argument. Usage:
-     * <pre>
-     *   SettingsManager::registerCallback(function($manager){
-     *       $manager->registerSettingItems([...]);
-     *   });
-     * </pre>
+     * callback function as an argument.
+     * Usage:
+     *
+     *     SettingsManager::registerCallback(function($manager){
+     *         $manager->registerSettingItems([...]);
+     *     });
+     *
      * @param callable $callback A callable function.
      */
     public function registerCallback(callable $callback)
@@ -206,8 +207,8 @@ class SettingsManager
 
     /**
      * Registers the back-end setting items.
-     * The argument is an array of the settings items. The array keys represent the 
-     * setting item codes, specific for the plugin/module. Each element in the 
+     * The argument is an array of the settings items. The array keys represent the
+     * setting item codes, specific for the plugin/module. Each element in the
      * array should be an associative array with the following keys:
      * - label - specifies the settings label localization string key, required.
      * - icon - an icon name from the Font Awesome icon collection, required.

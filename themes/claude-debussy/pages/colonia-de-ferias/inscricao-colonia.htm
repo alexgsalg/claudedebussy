@@ -1,0 +1,139 @@
+title = 'Inscrição Colônia de férias'
+url = '/colonia-de-ferias/inscricao-colonia'
+layout = 'default'
+==
+
+<div class="sec-titulo titulo-post">
+      <h2 class="section-heading titulo">formulario para pré-matricula <span class="smaller"> ( reserva e orçamento)</span></h2>
+    </div>
+    <section class="full section section-escola" id="about">
+      <div class="content-info">
+        <div class="w-form">
+            <form {{ add_attributes_smartform('ins-daycare') }} data-request-success="callbackForm(this, data)">
+          <form data-name="Email Form" id="email-form" name="email-form">
+            <div class="content-info">
+              <div class="w-row">
+                <div class="w-col w-col-6">
+                  <h3 class="home-cursos">Dados do(a) Aluno(a)</h3>
+                  <div class="traco under whiteline"></div>
+                </div>
+                <div class="w-col w-col-6">
+                  <div class="split">
+                    <div class="block">
+                      <label>Data de solicitação:</label>
+                    </div>
+                    <input class="data w-input" data-name="dataColonia" id="dataColonia" maxlength="256" name="dataColonia" placeholder="___/___/______" required="required" type="text">
+                  </div>
+                </div>
+              </div>
+              <div class="w-row">
+                <div class="w-col w-col-6">
+                  <label for="NameColonia">Nome:</label>
+                  <input class="form-daycare w-input" data-name="NameColonia" id="NameColonia" maxlength="256" name="NameColonia" placeholder="Nome do aluno" required="required" type="text">
+                </div>
+                <div class="w-col w-col-6">
+                  <label for="idadeColonia">Idade: (anos)</label>
+                  <input class="form-daycare w-input" data-name="idadeColonia" id="idadeColonia" maxlength="256" name="idadeColonia" placeholder="Digite a idade em anos" required="required" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="traco"></div>
+            <div class="content-info">
+              <div class="w-row">
+                <div class="w-col w-col-6">
+                  <h3 class="home-cursos">Responsável</h3>
+                  <div class="traco under whiteline"></div>
+                </div>
+                <div class="w-col w-col-6"></div>
+              </div>
+              <div class="w-row">
+                <div class="w-col w-col-6">
+                  <label for="NameRespColonia">Nome:</label>
+                  <input class="form-daycare w-input" data-name="NameRespColonia" id="NameRespColonia" maxlength="256" name="NameRespColonia" placeholder="Nome do Responsável" required="required" type="text">
+                  <label for="celularColonia">Telefone celular:</label>
+                  <input class="form-daycare phone-ddd w-input" data-name="celularColonia" id="celularColonia" maxlength="256" name="celularColonia" placeholder="(__) _____-____" required="required" type="text">
+                  <label for="emailColonia">Email:</label>
+                  <input class="form-daycare w-input" data-name="emailColonia" id="emailColonia" maxlength="256" name="emailColonia" placeholder="Digite o email" required="required" type="email">
+                </div>
+                <div class="w-col w-col-6">
+                  <label for="grauColonia">Grau de parentesco:</label>
+                  <input class="form-daycare w-input" data-name="grauColonia" id="grauColonia" maxlength="256" name="grauColonia" placeholder="Parentesco" required="required" type="text">
+                  <label for="fixoColonia">Telefone fixo:</label>
+                  <input class="form-daycare phone-ddd w-input" data-name="fixoColonia" id="fixoColonia" maxlength="256" name="fixoColonia" placeholder="(__) ____-____" required="required" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="traco"></div>
+            <div class="content-info">
+              <h3 class="home-cursos">PARA O PREENCHIMENTO ABAIXO, CONSULTE A GRADE HORÁRIA DA COLÔNIA DE FÉRIAS INVERNO/2017</h3>
+              <p class="p-escola">Marque a(s) semana(s) que a criança ficará na Colônia de Férias do Espaço Criança:</p>
+            </div>
+            <div class="content-info">
+              <label for="NameResp-2">1 dia/semana</label>
+              <div class="row-space w-row">
+                <div class="w-col w-col-4">
+                  <div class="w-radio">
+                    <input class="w-radio-input" data-name="semanasColonia" id="1Colonia" name="semanasColonia" type="radio" value="1Colonia">
+                    <label class="w-form-label" for="1Colonia">1º semana (03 à 07/07)</label>
+                  </div>
+                </div>
+                <div class="w-col w-col-4">
+                  <div class="w-radio">
+                    <input class="w-radio-input" data-name="semanasColonia" id="2Colonia" name="semanasColonia" type="radio" value="2Colonia">
+                    <label class="w-form-label" for="2Colonia">2º semana (10 à 14/07)</label>
+                  </div>
+                </div>
+                <div class="w-col w-col-4">
+                  <div class="w-radio">
+                    <input class="w-radio-input" data-name="semanasColonia" id="3Colonia" name="semanasColonia" type="radio" value="3Colonia">
+                    <label class="w-form-label" for="3Colonia">3º semana (17 à 21/07)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="content-info">
+              <div class="content-info">
+                <p class="no-indent p-escola"><strong>Observações:</strong>
+                </p>
+              </div>
+              <p class="no-indent p-escola">IMPORTANTE: O preenchimento dos dados acima não garante a disponibilidade de vaga, nem exige a matrícula da criança no referido curso, visa tão somente facilitar o seu ingresso no Curso de Férias do Espaço Criança.</p>
+              <p class="no-indent p-escola">PREECHIDO O FORMULÁRIO, ENVIAR PARA O E-MAIL: <a href="mailto:coloniaclaude@gmail.com?subject=Colônia de férias" class="p-link">coloniaclaude@gmail.com</a>
+              </p>
+              <p class="no-indent p-escola"><strong>Agradecemos o seu contato, retornaremos atendendo a sua solicitação.</strong>
+              </p>
+            </div>
+            <input class="btn-cta-home w-button" data-wait="Aguarde..." type="submit" value="Enviar pré-matrícula">
+          </form>
+          <div class="w-form-done">
+            <div>Thank you! Your submission has been received!</div>
+          </div>
+          <div class="w-form-fail">
+            <div>Oops! Something went wrong while submitting the form</div>
+          </div>
+        </div>
+        <p class="p-escola">Teve dificuldade de preencher o formulário?<a href="{{ 'assets/arquivos/Formulario-DayCare(Modelo)-SITEePais.pdf' | theme }}" target="_blank" class="btn-small">Clique aqui</a>
+        </p>
+      </div>
+    </section>
+    <section class="call-to-action-section cta-home"></section>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+  <script language="javascript">
+    $(document).ready(function () {
+        $('.data').mask('99/99/9999');
+        return false;
+    });
+  </script>
+  <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+  <script>
+    var SPMaskBehavior = function (val) {
+    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+    },
+    spOptions = {
+    onKeyPress: function(val, e, field, options) {
+    field.mask(SPMaskBehavior.apply({}, arguments), options);
+    }
+    };
+    $('.phone-ddd').mask(SPMaskBehavior, spOptions);
+  </script>

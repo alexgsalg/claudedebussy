@@ -923,6 +923,10 @@ a {
   text-align: justify;
 }
 
+.p-home.text-center {
+  text-align: center;
+}
+
 .row-home {
   display: inline-block;
   height: 300px;
@@ -1343,6 +1347,18 @@ a {
 
 .arrow:hover {
   color: #900b15;
+}
+
+.arrow.arrow-inverse {
+  width: 60px;
+  background-color: #fff;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  color: #900b15;
+}
+
+.arrow.arrow-inverse:hover {
+  color: #404047;
 }
 
 .arrow-block {
@@ -1955,6 +1971,10 @@ a {
   justify-content: center;
 }
 
+.flex-box.full-area {
+  height: 100%;
+}
+
 .nova-tabela {
   max-width: 700px;
   margin-bottom: 40px;
@@ -2034,6 +2054,84 @@ a {
 .color-red {
   color: #900b15;
   font-weight: 600;
+}
+
+.slider-big {
+  min-height: 400px;
+}
+
+.mask {
+  padding-right: 6%;
+  padding-left: 6%;
+}
+
+.diferencial {
+  display: block;
+  background-color: #0098ff;
+}
+
+.mask-2 {
+  padding-right: 3%;
+  padding-left: 3%;
+}
+
+.half-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 40px 50px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.half-box.diferencial-1 {
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(270deg, rgba(144, 11, 21, .8), rgba(144, 11, 21, .8)), url('../images/foto-3.JPG');
+  background-image: linear-gradient(180deg, rgba(144, 11, 21, .8), rgba(144, 11, 21, .8)), url('../images/foto-3.JPG');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+  background-repeat: repeat, no-repeat;
+}
+
+.half-box.diferencial-2 {
+  background-image: -webkit-linear-gradient(270deg, rgba(144, 11, 21, .7), rgba(144, 11, 21, .7)), url('../images/O-BAILE---JUNHO-2016-23.jpg');
+  background-image: linear-gradient(180deg, rgba(144, 11, 21, .7), rgba(144, 11, 21, .7)), url('../images/O-BAILE---JUNHO-2016-23.jpg');
+  background-position: 0px 0px, 50% 100%;
+  background-size: auto, cover;
+  background-repeat: repeat, no-repeat;
+}
+
+.half-box.diferencial-3 {
+  background-image: -webkit-linear-gradient(270deg, rgba(144, 11, 21, .7), rgba(144, 11, 21, .7)), url('../images/frozen-teatro.jpg');
+  background-image: linear-gradient(180deg, rgba(144, 11, 21, .7), rgba(144, 11, 21, .7)), url('../images/frozen-teatro.jpg');
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+  background-repeat: repeat, no-repeat;
+}
+
+.slider-4 {
+  min-height: 400px;
+  background-color: transparent;
+}
+
+.slidenav-hidden {
+  display: none;
 }
 
 html.w-mod-js *[data-ix="fade-in-bottom-page-loads"] {
@@ -2631,6 +2729,9 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
     background-size: cover;
     background-attachment: scroll;
   }
+  .arrow.arrow-inverse {
+    height: 60px;
+  }
   .arrow-block {
     width: 40px;
   }
@@ -2726,6 +2827,16 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   .titulo-grade {
     font-size: 32px;
     font-weight: 600;
+  }
+  .mask-2 {
+    padding-right: 0%;
+    padding-left: 0%;
+  }
+  .half-box {
+    padding: 20px;
+  }
+  .slider-4 {
+    min-height: 500px;
   }
 }
 
